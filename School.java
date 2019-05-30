@@ -10,4 +10,12 @@ public class School {
         this.standbyEnrollNum = standbyEnrollNum;
         this.minEnrollScore = minEnrollScore;
     }
+
+    public int getEnrollNum() {
+        return enrollNum;
+    }
+
+    public int getStandbyEnrollNum() {
+        return standbyEnrollNum;
+    }
 }
