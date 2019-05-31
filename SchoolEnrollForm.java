@@ -1,3 +1,6 @@
+/*
+* 學校的錄取規則
+* */
 import java.util.Iterator;
 import java.util.TreeSet;
 

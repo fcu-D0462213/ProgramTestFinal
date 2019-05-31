@@ -1,3 +1,6 @@
+/*
+* 當前設定為：學生的申請表
+* */
 public class applicationForm {
     private Student student;
     private String choosedSchoolName;

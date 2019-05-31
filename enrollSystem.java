@@ -1,3 +1,7 @@
+/*
+* 當前設定為：錄取的操作系統
+*
+* */
 import java.util.ArrayList;
 import java.util.TreeSet;
 

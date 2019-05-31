@@ -1,3 +1,8 @@
+/*
+* 學生class
+* 包含學生姓名和成績
+* 重寫TreeSet比較
+* */
 public class Student implements Comparable{
     private String stuName;
     private double stuStore;
