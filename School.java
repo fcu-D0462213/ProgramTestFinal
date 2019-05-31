@@ -4,6 +4,7 @@ public class School {
     private int standbyEnrollNum;
     private double minEnrollScore;
     private int totalEnrollNumber;
+
     public School(String schoolName, int enrollNum, int standbyEnrollNum, double minEnrollScore) {
         this.schoolName = schoolName;
         this.enrollNum = enrollNum;

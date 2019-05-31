@@ -17,13 +17,13 @@ public class systemTest {
         student4 = new Student("王五",100);
         student5 = new Student("小紅",88);
     }
-    @Test
-    public void Test1(){
-        StringBuffer expected =null;
+    @Test //學校錄取名單測試
+    public void SchoolEnrollFormTest1(){
+        StringBuffer expected = null;
         String expected2 = "";
         School school = new School("台灣大學",3,2,75);
         schoolEnrollForm = new SchoolEnrollForm(school);
-        students = new Student[]{student1, student2, student3, student5, student4};
+        students = new Student[]{student1, student2, student3, student5, student4};//假設這些同學投了台大
         schoolEnrollForm.schoolEnrollRule(students);
         assertEquals(expected,schoolEnrollForm.schoolEnrollFormOutput());
         //assertEquals(expected2,schoolEnrollForm.schoolEnrollFormOutput2());
