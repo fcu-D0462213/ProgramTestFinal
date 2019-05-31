@@ -20,11 +20,11 @@ public class Student implements Comparable{
     public int compareTo(Object o) {
         Student student = (Student) o;
         if (this.getStuStore() > student.getStuStore()){
-            return 1;
+            return -1;
         }else if (this.getStuStore() == student.getStuStore()){
             return 0;
         }else {
-            return -1;
+            return 11;
         }
     }
 }
