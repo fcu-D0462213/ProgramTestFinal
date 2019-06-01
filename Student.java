@@ -24,12 +24,10 @@ public class Student implements Comparable{
     @Override
     public int compareTo(Object o) {
         Student student = (Student) o;
-        if (this.getStuStore() > student.getStuStore()){
+        if (this.getStuStore() >= student.getStuStore()){
             return -1;
-        }else if (this.getStuStore() == student.getStuStore()){
-            return 0;
-        }else {
-            return 11;
+        } else {
+            return 1;
         }
     }
 }

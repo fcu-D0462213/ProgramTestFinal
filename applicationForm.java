@@ -3,9 +3,9 @@
 * */
 public class applicationForm {
     private Student student;
-    private String choosedSchoolName;
+    public String[] choosedSchoolName;
 
-    public applicationForm(Student student, String choosedSchoolName) {
+    public applicationForm(Student student, String[] choosedSchoolName) {
         this.student = student;
         this.choosedSchoolName = choosedSchoolName;
     }
@@ -18,11 +18,11 @@ public class applicationForm {
         this.student = student;
     }
 
-    public String getChoosedSchoolName() {
+    public String[] getChoosedSchoolName() {
         return choosedSchoolName;
     }
 
-    public void setChoosedSchoolName(String choosedSchoolName) {
+    public void setChoosedSchoolName(String[] choosedSchoolName) {
         this.choosedSchoolName = choosedSchoolName;
     }
 }

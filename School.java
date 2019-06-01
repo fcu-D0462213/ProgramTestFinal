@@ -9,12 +9,21 @@ public class School {
     private int standbyEnrollNum;
     private double minEnrollScore;
     private int totalEnrollNumber;
+    SchoolEnrollForm schoolEnrollForm;
 
     public School(String schoolName, int enrollNum, int standbyEnrollNum, double minEnrollScore) {
         this.schoolName = schoolName;
         this.enrollNum = enrollNum;
         this.standbyEnrollNum = standbyEnrollNum;
         this.minEnrollScore = minEnrollScore;
+    }
+
+    public void setSchoolEnrollForm(SchoolEnrollForm schoolEnrollForm) {
+        this.schoolEnrollForm = schoolEnrollForm;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
     }
 
     public int getEnrollNum() {

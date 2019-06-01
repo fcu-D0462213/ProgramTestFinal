@@ -1,21 +1,23 @@
 /*
 * 學校的錄取規則
 * */
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
 
 public class SchoolEnrollForm {
     School school;
     TreeSet<Student> studentsList = new TreeSet<Student>();
+    ArrayList<School> schools = new ArrayList<>();
 
-    public SchoolEnrollForm(School school) {
+    public void setSchool(School school) {
         this.school = school;
     }
 
-    //加入學生
+    //加入超過最低分數線的學生,并排序
     public void schoolEnrollRule(Student[] student){
         for (int i = 0; i < student.length ; i++) {
-            if (student[i].getStuStore() >= school.getMinEnrollScore()){
+            if (student[i].getStuStore() >= this.school.getMinEnrollScore()){
                 studentsList.add(student[i]);
             }
         }
@@ -64,5 +66,17 @@ public class SchoolEnrollForm {
         }
         return finalForm2;
     }
+
+    /*public static void main(String[] args) {
+        School school1 = new School("逢甲大學",5,3,85);
+        School school2 = new School("台灣大學",4,4,95);
+        School school3 = new School("中原大學",2,3,82);
+        School school4 = new School("清華大學",4,2,93);
+        School school5 = new School("成功大學",3,3,94);
+        SchoolEnrollForm schoolEnrollForm = new SchoolEnrollForm(school1);
+        //SchoolEnrollForm schoolEnrollForm = new SchoolEnrollForm(new School[]{school1,school2});
+        System.out.println(schoolEnrollForm.getSchool());
+        System.out.println(schoolEnrollForm.getSchools());
+    }*/
 }
 
