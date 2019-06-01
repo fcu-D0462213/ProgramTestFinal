@@ -5,8 +5,7 @@ public class applicationForm {
     private Student student;
     public String[] choosedSchoolName;
 
-    public applicationForm(Student student, String[] choosedSchoolName) {
-        this.student = student;
+    public applicationForm(String[] choosedSchoolName) {
         this.choosedSchoolName = choosedSchoolName;
     }
 
