@@ -4,8 +4,8 @@
 * 重寫TreeSet比較
 * */
 public class Student implements Comparable{
-    private String stuName;
-    private double stuStore;
+    private String stuName;//學生姓名
+    private double stuStore;//學生成績
 
     public Student(String stuName, double stuStore) {
         this.stuName = stuName;

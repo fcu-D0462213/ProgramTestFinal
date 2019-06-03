@@ -23,35 +23,35 @@ public class systemTest {
     public void createTestData(){
         student1 = new Student("張三",100);
         student2 = new Student("李四",99);
-        student3 = new Student("小明",98);
+        student3 = new Student("小明",93);
         student4 = new Student("王五",97);
-        student5 = new Student("小紅",80);
-        school1 = new School("逢甲大學",1,3,90);
+        student5 = new Student("小紅",91);
+        school1 = new School("逢甲大學",1,2,90);
         school2 = new School("台灣大學",4,4,95);
         school3 = new School("中原大學",2,3,82);
-        school4 = new School("清華大學",4,2,93);
+        school4 = new School("清華大學",2,2,93);
         school5 = new School("成功大學",3,3,94);
     }
+
     @Test //學校錄取名單測試
     public void SchoolEnrollFormTest1(){
         StringBuffer expected = null;
         String expected2 = "";
-        School school = new School("逢甲大學",1,3,90);
-        students = new Student[]{student1, student2, student3, student5, student4};//假設這些同學投了台大
+        School school = new School("逢甲大學",1,6,90);
+        School school2 = new School("台灣大學",4,4,95);
+        students = new Student[]{student1, student2, student3, student5, student4};//假設這些同學投了逢甲
 
         schoolEnrollForm = new SchoolEnrollForm();
-        schoolEnrollForm.setSchool(school);
-
-        school.setSchoolEnrollForm(schoolEnrollForm);
-        school.schoolEnrollForm.schoolEnrollRule(students);
-
-        //schoolEnrollForm.schoolEnrollRule(students);
-        //assertEquals(expected,schoolEnrollForm.schoolEnrollFormOutput());
-        assertEquals(expected2,schoolEnrollForm.schoolEnrollFormOutput2());
+        schoolEnrollForm.schoolEnrollRule(school,students);
+        schoolEnrollForm.schoolEnrollRule(school2,students);
+        //assertEquals(expected,schoolEnrollForm.schoolEnrollFormOutput(school));
+        //assertEquals(expected2,schoolEnrollForm.schoolEnrollFormOutput2(school));
+        assertEquals(expected,schoolEnrollForm.schoolEnrollFormOutput2(school2));
     }
+
     @Test //學生錄取測試
     public void StudentFinalEnrollFormTest(){
-        String expected = "";
+        String expected = "1";
         finalEnrollForm = new finalEnrollForm();
         students = new Student[]{student1, student2, student3, student5, student4};//學生名單
 
@@ -65,16 +65,14 @@ public class systemTest {
         schoolEnrollForm.schools.add(school4);//清華
         schoolEnrollForm.schools.add(school5);//成功
 
-        schoolEnrollForm.setSchool(school1);
+        schoolEnrollForm.schoolEnrollRule(school1,students);//逢甲的錄取名單
+        schoolEnrollForm.schoolEnrollRule(school2,students);//台大的錄取名單
+        schoolEnrollForm.schoolEnrollRule(school3,students);//中原的錄取名單
+        schoolEnrollForm.schoolEnrollRule(school4,students);//清華的錄取名單
+        schoolEnrollForm.schoolEnrollRule(school5,students);//成功的錄取名單
 
-        school1.setSchoolEnrollForm(schoolEnrollForm);
-        school1.schoolEnrollForm.schoolEnrollRule(students);//調用school中的學校錄取方法
+        applicationForm = new applicationForm(new String[]{"台灣大學","逢甲大學","中原大學","清華大學","成功大學"});//創立志願
 
-
-        //schoolEnrollForm = new SchoolEnrollForm(schools);
-        applicationForm = new applicationForm(new String[]{"台灣大學","逢甲大學","中原大學"});
         assertEquals(expected,finalEnrollForm.studentEnrollFormRule(student3,applicationForm,schoolEnrollForm));
     }
-
-
 }

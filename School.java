@@ -1,15 +1,16 @@
+import java.util.TreeSet;
+
 /*
 * 學校class
 * 包含學校名稱，學校錄取人數，備取人數，最低分數線
 *
 * */
 public class School {
-    private String schoolName;
-    private int enrollNum;
-    private int standbyEnrollNum;
-    private double minEnrollScore;
-    private int totalEnrollNumber;
-    SchoolEnrollForm schoolEnrollForm;
+    private String schoolName;//學校名字
+    private int enrollNum;//錄取人數
+    private int standbyEnrollNum;//備取人數
+    private double minEnrollScore;//最低錄取分數線
+    TreeSet<Student> studentsList = new TreeSet<Student>();//每個學校的報考學生列表
 
     public School(String schoolName, int enrollNum, int standbyEnrollNum, double minEnrollScore) {
         this.schoolName = schoolName;
@@ -18,8 +19,12 @@ public class School {
         this.minEnrollScore = minEnrollScore;
     }
 
-    public void setSchoolEnrollForm(SchoolEnrollForm schoolEnrollForm) {
-        this.schoolEnrollForm = schoolEnrollForm;
+    public TreeSet<Student> getStudentsList() {
+        return studentsList;
+    }
+
+    public void setStudentsList(TreeSet<Student> studentsList) {
+        this.studentsList = studentsList;
     }
 
     public String getSchoolName() {
