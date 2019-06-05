@@ -26,11 +26,11 @@ public class SchoolEnrollForm {
         while (iterator.hasNext()){
             Student student = iterator.next();
             if (tempSize <= school.getEnrollNum()){
-                finalForm.append("正取學生"+tempSize+":"+student.getStuName()+" ");
+                finalForm.append("正取學生"+tempSize+":"+student.getStuName()+"\n");
                 //System.out.println("正取學生"+tempSize+":"+student.getStuName());
                 tempSize++;
             }else if (tempSize>school.getEnrollNum()&&tempSize<=school.getTotalEnrollNumber()){
-                finalForm.append("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName()+" ");
+                finalForm.append("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName()+"\n");
                 //System.out.println("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName());
                 tempSize++;
             }else {
@@ -50,11 +50,11 @@ public class SchoolEnrollForm {
         while (iterator.hasNext()){
             Student student = iterator.next();
             if (tempSize <= school.getEnrollNum()){
-                finalForm2 = finalForm2 + "正取學生"+tempSize+":"+student.getStuName()+" ";
+                finalForm2 = finalForm2 + "正取學生"+tempSize+":"+student.getStuName()+"\n";
                 //System.out.println("正取學生"+tempSize+":"+student.getStuName());
                 tempSize++;
             }else if (tempSize>school.getEnrollNum()&&tempSize<=school.getTotalEnrollNumber()){
-                finalForm2 = finalForm2 + "備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName()+" ";
+                finalForm2 = finalForm2 + "備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName()+"\n";
                 //System.out.println("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName());
                 tempSize++;
             }else {
