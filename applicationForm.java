@@ -25,4 +25,5 @@ public class applicationForm {
 
     return choosedSchoolName;
   }
+
 }

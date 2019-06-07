@@ -25,11 +25,11 @@ public class systemTest {
 
   @Before
   public void createTestData() {
-    student1 = new Student("STU0002016001","張三", 100);
-    student2 = new Student("STU0002016002","李四", 99);
-    student3 = new Student("STU0002016003","小明", 93);
-    student4 = new Student("STU0002016004","王五", 97);
-    student5 = new Student("STU0002016005","小紅", 91);
+    student1 = new Student("STU0002016001", "張三", 100);
+    student2 = new Student("STU0002016002", "李四", 99);
+    student3 = new Student("STU0002016003", "小明", 93);
+    student4 = new Student("STU0002016004", "王五", 97);
+    student5 = new Student("STU0002016005", "小紅", 91);
     school1 = new School("逢甲大學", 1, 2, 90);
     school2 = new School("台灣大學", 4, 4, 95);
     school3 = new School("中原大學", 2, 3, 82);
@@ -46,8 +46,8 @@ public class systemTest {
     students = new Student[] { student1, student2, student3, student5, student4 };// 假設這些同學投了逢甲
 
     schoolEnrollForm = new SchoolEnrollForm();
-    schoolEnrollForm.schoolEnrollRule(school, students);
-    schoolEnrollForm.schoolEnrollRule(school2, students);
+    // schoolEnrollForm.schoolEnrollRule(school, students);
+    // schoolEnrollForm.schoolEnrollRule(school2, students);
     // assertEquals(expected,schoolEnrollForm.schoolEnrollFormOutput(school));
     // assertEquals(expected2,schoolEnrollForm.schoolEnrollFormOutput2(school));
     assertEquals(expected, schoolEnrollForm.schoolEnrollFormOutput2(school2));
@@ -69,11 +69,11 @@ public class systemTest {
     schoolEnrollForm.schools.add(school4);// 清華
     schoolEnrollForm.schools.add(school5);// 成功
 
-    schoolEnrollForm.schoolEnrollRule(school1, students);// 逢甲的錄取名單
-    schoolEnrollForm.schoolEnrollRule(school2, students);// 台大的錄取名單
-    schoolEnrollForm.schoolEnrollRule(school3, students);// 中原的錄取名單
-    schoolEnrollForm.schoolEnrollRule(school4, students);// 清華的錄取名單
-    schoolEnrollForm.schoolEnrollRule(school5, students);// 成功的錄取名單
+    // schoolEnrollForm.schoolEnrollRule(school1, students);// 逢甲的錄取名單
+    // schoolEnrollForm.schoolEnrollRule(school2, students);// 台大的錄取名單
+    // schoolEnrollForm.schoolEnrollRule(school3, students);// 中原的錄取名單
+    // schoolEnrollForm.schoolEnrollRule(school4, students);// 清華的錄取名單
+    // schoolEnrollForm.schoolEnrollRule(school5, students);// 成功的錄取名單
 
     applicationForm = new applicationForm(new String[] { "台灣大學", "逢甲大學", "中原大學", "清華大學", "成功大學" });// 創立志願
 

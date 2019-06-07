@@ -9,10 +9,14 @@ public class SchoolEnrollForm {
   ArrayList<School> schools = new ArrayList<>();// 所有學校的名單
 
   // 每個學校加入超過最低分數線的學生,并排序
-  public void schoolEnrollRule(School school, Student[] student) {
+  public void schoolEnrollRule(School school, Student[] student, applicationForm[] appForm) {
     for (int i = 0; i < student.length; i++) {
-      if (student[i].getStuStore() >= school.getMinEnrollScore()) {
-        school.studentsList.add(student[i]);
+      for (int j = 0; j < 3; j++) {
+        if (appForm[i].choosedSchoolName[j].equals(school.getSchoolName())
+            && student[i].getStuStore() >= school.getMinEnrollScore()) {
+          school.studentsList.add(student[i]);
+        }
+
       }
     }
   }
