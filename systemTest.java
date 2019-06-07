@@ -25,11 +25,11 @@ public class systemTest {
 
   @Before
   public void createTestData() {
-    student1 = new Student("張三", 100);
-    student2 = new Student("李四", 99);
-    student3 = new Student("小明", 93);
-    student4 = new Student("王五", 97);
-    student5 = new Student("小紅", 91);
+    student1 = new Student("STU0002016001","張三", 100);
+    student2 = new Student("STU0002016002","李四", 99);
+    student3 = new Student("STU0002016003","小明", 93);
+    student4 = new Student("STU0002016004","王五", 97);
+    student5 = new Student("STU0002016005","小紅", 91);
     school1 = new School("逢甲大學", 1, 2, 90);
     school2 = new School("台灣大學", 4, 4, 95);
     school3 = new School("中原大學", 2, 3, 82);
