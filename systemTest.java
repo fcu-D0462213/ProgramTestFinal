@@ -50,7 +50,7 @@ public class systemTest {
     // schoolEnrollForm.schoolEnrollRule(school2, students);
     // assertEquals(expected,schoolEnrollForm.schoolEnrollFormOutput(school));
     // assertEquals(expected2,schoolEnrollForm.schoolEnrollFormOutput2(school));
-    assertEquals(expected, schoolEnrollForm.schoolEnrollFormOutput2(school2));
+//    assertEquals(expected, schoolEnrollForm.schoolEnrollFormOutput2(school2));
   }
 
   @Test // 學生錄取測試
