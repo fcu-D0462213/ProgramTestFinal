@@ -8,7 +8,7 @@ public class finalEnrollForm {
   public String studentEnrollFormRule(Student student, applicationForm applicationForm,
       SchoolEnrollForm schoolEnrollForm) {
     applicationForm.setStudent(student);
-    String stuFinalForm = student.getStuId() + " " + student.getStuName() + "同學：" + "\n";
+    String stuFinalForm = student.getStuId() + " " + student.getStuName() + "\n";
     // 記錄是否正取
     int flag = 0;
     // 找尋學校名單中的學生姓名
@@ -27,21 +27,21 @@ public class finalEnrollForm {
             Student studentInList = iterator.next();
             // 判斷學生姓名
             if (studentInList.getStuId().equals(applicationForm.getStudent().getStuId())) {
-                if(flag == 0){
-                    if (tempSize <= schoolEnrollForm.schools.get(j).getEnrollNum()) {
-                        stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 正取" + tempSize + "\n";
-                        flag = 1;
-                    } else if (tempSize > schoolEnrollForm.schools.get(j).getEnrollNum()
-                            && tempSize <= schoolEnrollForm.schools.get(j).getTotalEnrollNumber()) {
-                        stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 備取"
-                                + (tempSize - schoolEnrollForm.schools.get(j).getEnrollNum()) + "\n";
-                    } else {
-                        stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n";
-                    }
+              if (flag == 0) {
+                if (tempSize <= schoolEnrollForm.schools.get(j).getEnrollNum()) {
+                  stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 正取" + tempSize
+                      + "\n";
+                  flag = 1;
+                } else if (tempSize > schoolEnrollForm.schools.get(j).getEnrollNum()
+                    && tempSize <= schoolEnrollForm.schools.get(j).getTotalEnrollNumber()) {
+                  stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 備取"
+                      + (tempSize - schoolEnrollForm.schools.get(j).getEnrollNum()) + "\n";
+                } else {
+                  stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n";
                 }
-                else{
-                    stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " ----" + "\n";
-                }
+              } else {
+                stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " ----" + "\n";
+              }
             } else if (tempSize <= schoolEnrollForm.schools.get(j).getTotalEnrollNumber()) {
               tempSize++;
             } else {
@@ -55,11 +55,11 @@ public class finalEnrollForm {
   }
 
   public static void main(String[] args) {
-    Student student1 = new Student("STU20160001","張三", 100);
-    Student student2 = new Student("STU20160002","李四", 90);
-    Student student3 = new Student("STU20160003","小明", 99);
-    Student student4 = new Student("STU20160004","王五", 99);
-    Student student5 = new Student("STU20160005","小紅", 88);
+    Student student1 = new Student("STU20160001", "張三", 100);
+    Student student2 = new Student("STU20160002", "李四", 90);
+    Student student3 = new Student("STU20160003", "小明", 99);
+    Student student4 = new Student("STU20160004", "王五", 99);
+    Student student5 = new Student("STU20160005", "小紅", 88);
     School school1 = new School("逢甲大學", 5, 3, 90);
     School school2 = new School("台灣大學", 1, 3, 95);
     School school3 = new School("中原大學", 2, 3, 82);

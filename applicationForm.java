@@ -8,7 +8,7 @@ public class applicationForm {
 
   public applicationForm(String[] choosedSchoolName) {
     for (int i = 0; i < 3; i++) {
-      this.choosedSchoolName = choosedSchoolName;
+      this.choosedSchoolName[i] = choosedSchoolName[i];
     }
 
   }
@@ -22,6 +22,7 @@ public class applicationForm {
   }
 
   public String[] getChoosedSchoolName() {
+
     return choosedSchoolName;
   }
 }
