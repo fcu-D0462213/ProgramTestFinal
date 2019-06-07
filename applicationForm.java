@@ -1,23 +1,27 @@
+
 /*
 * 當前設定為：學生的申請表
 * */
 public class applicationForm {
-    private Student student;//學生物件
-    public String[] choosedSchoolName;//學生填報的學校列表
+  private Student student;// 學生物件
+  public String[] choosedSchoolName = new String[3];// 學生填報的學校列表
 
-    public applicationForm(String[] choosedSchoolName) {
-        this.choosedSchoolName = choosedSchoolName;
+  public applicationForm(String[] choosedSchoolName) {
+    for (int i = 0; i < 3; i++) {
+      this.choosedSchoolName = choosedSchoolName;
     }
 
-    public Student getStudent() {
-        return student;
-    }
+  }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
+  public Student getStudent() {
+    return student;
+  }
 
-    public String[] getChoosedSchoolName() {
-        return choosedSchoolName;
-    }
+  public void setStudent(Student student) {
+    this.student = student;
+  }
+
+  public String[] getChoosedSchoolName() {
+    return choosedSchoolName;
+  }
 }
