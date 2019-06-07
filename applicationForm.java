@@ -10,7 +10,6 @@ public class applicationForm {
     for (int i = 0; i < 3; i++) {
       this.choosedSchoolName[i] = choosedSchoolName[i];
     }
-
   }
 
   public Student getStudent() {

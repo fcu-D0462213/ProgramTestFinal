@@ -23,7 +23,7 @@ public class enrollSystem {
     School school6 = new School("交通大學", 2, 3, 94);
     School school7 = new School("中山大學", 2, 3, 94);
     finalEnrollForm finalEnrollForm = new finalEnrollForm();
-    Student[] students = new Student[] { student1, student2, student3, student5, student4 };// 學生名單
+    Student[] students = new Student[] { student1, student2, student3, student4, student5 };// 學生名單
 
     // 創建學校錄取名單物件
     SchoolEnrollForm schoolEnrollForm = new SchoolEnrollForm();
@@ -42,17 +42,13 @@ public class enrollSystem {
     applicationForm app3 = new applicationForm(new String[] { "清華大學", "中山大學", "逢甲大學" });
     applicationForm app4 = new applicationForm(new String[] { "交通大學", "清華大學", "中山大學" });
     applicationForm app5 = new applicationForm(new String[] { "交通大學", "清華大學", "成功大學" });
-    applicationForm[] app = new applicationForm[] { app1, app2, app3, app4, app5 };
+    applicationForm[] apps = new applicationForm[] { app1, app2, app3, app4, app5 };
 
-    schoolEnrollForm.schoolEnrollRule(students, app);// 逢甲的錄取名單
+    schoolEnrollForm.schoolEnrollRule(students, apps);//學校的錄取名單
 
-    System.out.println(finalEnrollForm.studentEnrollFormRule(student1, app1, schoolEnrollForm));
-    System.out.println(finalEnrollForm.studentEnrollFormRule(student2, app2, schoolEnrollForm));
-    System.out.println(finalEnrollForm.studentEnrollFormRule(student3, app3, schoolEnrollForm));
-    System.out.println(finalEnrollForm.studentEnrollFormRule(student4, app4, schoolEnrollForm));
-    System.out.println(finalEnrollForm.studentEnrollFormRule(student5, app5, schoolEnrollForm));
+    System.out.println(finalEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
-    System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());
+    System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());//印出學校榜單
   }
 
 }
