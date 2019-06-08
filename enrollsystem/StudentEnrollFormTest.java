@@ -1,9 +1,10 @@
 package enrollsystem;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import com.sun.istack.internal.logging.Logger;
 
 public class StudentEnrollFormTest {
   @Before
@@ -83,10 +84,11 @@ public class StudentEnrollFormTest {
 
     schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
 
-    Logger logger = null;
-    logger.info(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
+    Logger log = Logger.getLogger("lavasoft");
+    log.setLevel(Level.INFO);
+    log.info(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
-    logger.info(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
+    log.info(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
   }
 
   @Test // 學生錄取測試
