@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class finalEnrollForm {
     public String studentEnrollFormRule(Student[] stu, applicationForm[] app, SchoolEnrollForm schoolEnrollForm) {
         String stuFinalForm = "";
-        for(int k = 0; k < stu.length; k++) {
+        for (int k = 0; k < stu.length; k++) {
             Student student = stu[k];
             applicationForm applicationForm = app[k];
             stuFinalForm = stuFinalForm + student.getStuId() + " " + student.getStuName() + "\n";
