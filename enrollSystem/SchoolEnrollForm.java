@@ -1,4 +1,4 @@
-
+package enrollSystem;
 /*
  * 學校的錄取規則
  * */
@@ -17,7 +17,7 @@ public class SchoolEnrollForm {
             School school = iteSchool.next();
             for (int i = 0; i < student.length; i++) {
                 for (int j = 0; j < appForm[i].getNumOfApp(); j++) {
-                    if (appForm[i].choosedSchoolName[j].equals(school.getSchoolName())) {
+                    if (appForm[i].getChoosedSchoolName(j).equals(school.getSchoolName())) {
                         school.addStuNum();
                         if (student[i].getStuStore() >= school.getMinEnrollScore()) {
                             school.studentsList.add(student[i]);

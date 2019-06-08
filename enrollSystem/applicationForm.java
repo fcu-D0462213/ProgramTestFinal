@@ -1,8 +1,10 @@
+package enrollSystem;
+
 /*
  * 當前設定為：學生的申請表
  * */
 public class applicationForm {
-    public String[] choosedSchoolName = new String[4];// 學生填報的學校列表
+    private String[] choosedSchoolName = new String[4];// 學生填報的學校列表
     private int numOfApp;
 
     public applicationForm(String[] choosedSchoolName) {
@@ -16,8 +18,8 @@ public class applicationForm {
         return numOfApp;
     }
 
-//    public String[] getChoosedSchoolName() {
-//        return choosedSchoolName;
-//    }
+    public String getChoosedSchoolName(int i) {
+        return choosedSchoolName[i];
+    }
 
 }

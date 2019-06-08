@@ -1,3 +1,5 @@
+package enrollSystem;
+
 /*
  * 學生class
  * 包含學生姓名和成績

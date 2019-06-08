@@ -1,3 +1,5 @@
+package enrollSystem;
+
 import java.util.Iterator;
 
 /*
@@ -18,7 +20,7 @@ public class finalEnrollForm {
                 for (int j = 0; j < schoolEnrollForm.schools.size(); j++) {
                     int tempSize = 1;
                     /* 學校List */
-                    if (applicationForm.choosedSchoolName[i].equals(schoolEnrollForm.schools.get(j).getSchoolName())) {
+                    if (applicationForm.getChoosedSchoolName(i).equals(schoolEnrollForm.schools.get(j).getSchoolName())) {
                         // 成績小於錄取線：未錄取
                         if (student.getStuStore() < schoolEnrollForm.schools.get(j).getMinEnrollScore()) {
                             stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n";
