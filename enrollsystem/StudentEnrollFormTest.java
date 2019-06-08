@@ -1,4 +1,4 @@
-package enrollSystem;
+package enrollsystem;
 
 import static org.junit.Assert.assertEquals;
 

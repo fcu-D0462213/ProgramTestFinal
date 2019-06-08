@@ -1,4 +1,4 @@
-package enrollSystem;
+package enrollsystem;
 
 /*
  * 當前設定為：學生的申請表

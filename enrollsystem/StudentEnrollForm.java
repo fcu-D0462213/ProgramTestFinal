@@ -1,4 +1,4 @@
-package enrollSystem;
+package enrollsystem;
 
 import java.util.Iterator;
 

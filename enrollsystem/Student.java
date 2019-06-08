@@ -1,4 +1,4 @@
-package enrollSystem;
+package enrollsystem;
 
 /*
  * 學生class
