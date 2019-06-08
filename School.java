@@ -20,14 +20,6 @@ public class School {
         this.minEnrollScore = minEnrollScore;
     }
 
-    public TreeSet<Student> getStudentsList() {
-        return studentsList;
-    }
-
-    public void setStudentsList(TreeSet<Student> studentsList) {
-        this.studentsList = studentsList;
-    }
-
     public String getSchoolName() {
         return schoolName;
     }
@@ -50,10 +42,6 @@ public class School {
 
     public int getTotalStuNum() {
         return totalStuNum;
-    }
-
-    public void setTotalStuNum(int totalStuNum) {
-        this.totalStuNum = totalStuNum;
     }
 
     public void addStuNum() {

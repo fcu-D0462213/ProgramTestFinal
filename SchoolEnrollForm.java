@@ -27,6 +27,7 @@ public class SchoolEnrollForm {
             }
         }
     }
+/*
 
     // 使用StringBuffer輸出
     public StringBuffer schoolEnrollFormOutput(School school) {
@@ -51,6 +52,7 @@ public class SchoolEnrollForm {
         }
         return finalForm;
     }
+*/
 
     // 使用String輸出
     public String schoolEnrollFormOutput2() {

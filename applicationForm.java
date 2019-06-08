@@ -16,8 +16,8 @@ public class applicationForm {
         return numOfApp;
     }
 
-    public String[] getChoosedSchoolName() {
-        return choosedSchoolName;
-    }
+//    public String[] getChoosedSchoolName() {
+//        return choosedSchoolName;
+//    }
 
 }
