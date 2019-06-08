@@ -42,6 +42,9 @@ public class Student implements Comparable {
 
   @Override
   public boolean equals(Object o) {
+    if (o == null)
+      return false;
+
     if (o == this)
       return true;
 

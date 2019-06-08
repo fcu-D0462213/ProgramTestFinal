@@ -32,7 +32,7 @@ public class School {
     int count = 1;
     while (iterator.hasNext()) {
       Student student = iterator.next();
-      if (count == enrollNum && student.getStuStore() == iterator.next().getStuStore()) {
+      if (count == enrollNum && student.getStuScore() == iterator.next().getStuScore()) {
         enrollNum = enrollNum + 1;
       }
       count++;
