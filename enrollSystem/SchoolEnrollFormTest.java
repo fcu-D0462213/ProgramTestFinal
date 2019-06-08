@@ -45,7 +45,7 @@ public class SchoolEnrollFormTest {
                 student11, student12, student13, student14, student15,
                 student16, student17, student18};// 學生名單
 
-        finalEnrollForm finalEnrollForm = new finalEnrollForm();
+        StudentEnrollForm studentEnrollForm = new StudentEnrollForm();
 
         // 創建學校錄取名單物件
         SchoolEnrollForm schoolEnrollForm = new SchoolEnrollForm();
@@ -88,7 +88,7 @@ public class SchoolEnrollFormTest {
 
         schoolEnrollForm.schoolEnrollRule(students, apps);//學校的錄取名單
 
-        System.out.println(finalEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
+        System.out.println(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
         System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());//印出學校榜單
     }

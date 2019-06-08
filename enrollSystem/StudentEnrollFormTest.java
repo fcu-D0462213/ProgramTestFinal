@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class finalEnrollFormTest {
+public class StudentEnrollFormTest {
   @Before
   public void setup() {
     Student student1 = new Student("STU20160001", "張三", 100);
@@ -44,7 +44,7 @@ public class finalEnrollFormTest {
             student11, student12, student13, student14, student15,
             student16, student17, student18};// 學生名單
 
-    finalEnrollForm finalEnrollForm = new finalEnrollForm();
+    StudentEnrollForm studentEnrollForm = new StudentEnrollForm();
 
     // 創建學校錄取名單物件
     SchoolEnrollForm schoolEnrollForm = new SchoolEnrollForm();
@@ -87,7 +87,7 @@ public class finalEnrollFormTest {
 
     schoolEnrollForm.schoolEnrollRule(students, apps);//學校的錄取名單
 
-    System.out.println(finalEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
+    System.out.println(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
     System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());//印出學校榜單
   }

@@ -6,7 +6,7 @@ import java.util.Iterator;
  * 學生所得到的表單
  * 可以考慮增加使用StringBuffer輸出
  * */
-public class finalEnrollForm {
+public class StudentEnrollForm {
     public String studentEnrollFormRule(Student[] stu, applicationForm[] app, SchoolEnrollForm schoolEnrollForm) {
         String stuFinalForm = "";
         for (int k = 0; k < stu.length; k++) {
