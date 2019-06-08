@@ -7,13 +7,13 @@ package enrollsystem;
  * */
 public class Student implements Comparable {
   private String stuName;// 學生姓名
-  private double stuStore;// 學生成績
+  private double stuScore;// 學生成績
   private String stuId;// student ID
 
-  public Student(String stuId, String stuName, double stuStore) {
+  public Student(String stuId, String stuName, double stuScore) {
     this.stuId = stuId;
     this.stuName = stuName;
-    this.stuStore = stuStore;
+    this.stuScore = stuScore;
 
   }
 
@@ -25,15 +25,15 @@ public class Student implements Comparable {
     return stuName;
   }
 
-  public double getStuStore() {
-    return stuStore;
+  public double getStuScore() {
+    return stuScore;
   }
 
   // 重寫比較 升序排列
   @Override
   public int compareTo(Object o) {
     Student student = (Student) o;
-    if (this.getStuStore() >= student.getStuStore()) {
+    if (this.getStuScore() >= student.getStuScore()) {
       return -1;
     } else {
       return 1;
@@ -42,9 +42,15 @@ public class Student implements Comparable {
 
   @Override
   public boolean equals(Object o) {
-    Student student = (Student) o;
-    return this.getStuStore() >= student.getStuStore();
+    return (this == o);
 
+  }
+
+  @Override
+  public int hashCode() {
+    int hash = 17;
+    hash = hash * 31 + getStuName().hashCode();
+    return hash;
   }
 
 }
