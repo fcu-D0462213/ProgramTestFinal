@@ -65,8 +65,8 @@ public class SchoolEnrollForm {
       float gapRate = (float) (school.getEnrollNum() - trulyEnrollNumber) / (float) school.getEnrollNum() * 100;
       finalForm2.append("錄取率:" + df.format(enrollRate) + "%" + " 缺額率：" + df.format(gapRate) + "%" + "\n\n");
     }
-    String finalForm = finalForm2.toString();
-    return finalForm;
+
+    return finalForm2.toString();
   }
 
 }

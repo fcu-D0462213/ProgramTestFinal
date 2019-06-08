@@ -8,7 +8,6 @@ import java.util.Iterator;
 public class StudentEnrollForm {
   public String studentEnrollFormRule(Student[] stu, ApplicationForm[] app, SchoolEnrollForm schoolEnrollForm) {
     StringBuilder stuFinalForm = new StringBuilder();
-    ;
     for (int k = 0; k < stu.length; k++) {
       Student student = stu[k];
       ApplicationForm applicationForm = app[k];
@@ -56,7 +55,6 @@ public class StudentEnrollForm {
       }
       stuFinalForm.append("\n");
     }
-    String stuFinalForm2 = stuFinalForm.toString();
-    return stuFinalForm2;
+    return stuFinalForm.toString();
   }
 }
