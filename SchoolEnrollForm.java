@@ -1,0 +1,112 @@
+
+/*
+ * 學校的錄取規則
+ * */
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class SchoolEnrollForm {
+    ArrayList<School> schools = new ArrayList<>();// 所有學校的名單
+
+    // 每個學校加入超過最低分數線的學生,并排序
+    public void schoolEnrollRule(Student[] student, applicationForm[] appForm) {
+        Iterator<School> iteSchool = schools.iterator();
+        while (iteSchool.hasNext()) {
+            School school = iteSchool.next();
+            for (int i = 0; i < student.length; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (appForm[i].choosedSchoolName[j].equals(school.getSchoolName())) {
+                        school.addStuNum();
+                        if (student[i].getStuStore() >= school.getMinEnrollScore()) {
+                            school.studentsList.add(student[i]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+/*  //計算缺額率
+    public String caculateGapRate(){
+        String rateResult = " ";
+        DecimalFormat df = new DecimalFormat("0.00");
+        int trulyEnrollNumber;
+        Iterator<School> iteSchool = schools.iterator();
+        while (iteSchool.hasNext()){
+            School school = iteSchool.next();
+            if (school.studentsList.size() >= school.getEnrollNum()){
+                trulyEnrollNumber = school.getEnrollNum();
+            }else {
+                trulyEnrollNumber = school.studentsList.size();
+            }
+            rateResult = rateResult + school.getSchoolName() + " 缺額率：" + df.format((school.getEnrollNum()-trulyEnrollNumber)/school.getEnrollNum());
+        }
+        return rateResult;
+    }*/
+
+    // 使用StringBuffer輸出
+    public StringBuffer schoolEnrollFormOutput(School school) {
+
+        Iterator<Student> iterator = school.studentsList.iterator();
+        StringBuffer finalForm = new StringBuffer();
+        int tempSize = 1;
+
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
+            if (tempSize <= school.getEnrollNum()) {
+                finalForm.append("正取學生" + tempSize + ":" + student.getStuName() + "\n");
+                // System.out.println("正取學生"+tempSize+":"+student.getStuName());
+                tempSize++;
+            } else if (tempSize > school.getEnrollNum() && tempSize <= school.getTotalEnrollNumber()) {
+                finalForm.append("備取學生" + (tempSize - school.getEnrollNum()) + ":" + student.getStuName() + "\n");
+                // System.out.println("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName());
+                tempSize++;
+            } else {
+                break;
+            }
+        }
+        return finalForm;
+    }
+
+    // 使用String輸出
+    public String schoolEnrollFormOutput2() {
+        String finalForm2 = "";
+        Iterator<School> iteSchool = schools.iterator();
+        while (iteSchool.hasNext()) {
+            School school = iteSchool.next();
+            Iterator<Student> iterator = school.studentsList.iterator();
+            finalForm2 = finalForm2 + school.getSchoolName() + " 錄取名單：\n";
+            int tempSize = 0;
+            int trulyEnrollNumber = 0;
+
+            if (school.studentsList.size() >= school.getEnrollNum()) {
+                trulyEnrollNumber = school.getEnrollNum();
+            } else {
+                trulyEnrollNumber = school.studentsList.size();
+            }
+
+            while (iterator.hasNext()) {
+                Student student = iterator.next();
+                if (tempSize <= school.getEnrollNum()) {
+                    finalForm2 = finalForm2 + "正取學生" + tempSize + ":" + student.getStuName() + "\n";
+                    // System.out.println("正取學生"+tempSize+":"+student.getStuName());
+                    tempSize++;
+                } else if (tempSize > school.getEnrollNum() && tempSize <= school.getTotalEnrollNumber()) {
+                    finalForm2 = finalForm2 + "備取學生" + (tempSize - school.getEnrollNum()) + ":" + student.getStuName() + "\n";
+                    // System.out.println("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName());
+                    // tempSize++;
+                } else {
+                    break;
+                }
+            }
+
+            String enrollRateFormat = "0.00";
+            DecimalFormat df = new DecimalFormat(enrollRateFormat);
+            float enrollRate = (float) tempSize * 100 / school.getTotalStuNum();
+            float gapRate = (school.getEnrollNum() - trulyEnrollNumber) / school.getEnrollNum() * 100;
+            finalForm2 = finalForm2 + "錄取率: " + df.format(enrollRate) + "%" + " 缺額率：" + df.format(gapRate) + "%" + "\n\n";
+        }
+        return finalForm2;
+    }
+}
