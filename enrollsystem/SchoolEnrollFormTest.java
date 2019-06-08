@@ -1,5 +1,8 @@
 package enrollsystem;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -81,10 +84,12 @@ public class SchoolEnrollFormTest {
         app12, app13, app14, app15, app16, app17, app18 };
 
     schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
+    Logger log = Logger.getLogger("lavasoft");
+    log.setLevel(Level.INFO);
 
-    System.out.println(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
+    log.info(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
-    System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
+    log.info(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
   }
 
   @Test // 學校錄取名單測試
