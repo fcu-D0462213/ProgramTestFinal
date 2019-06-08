@@ -27,23 +27,6 @@ public class SchoolEnrollForm {
             }
         }
     }
-/*  //計算缺額率
-    public String caculateGapRate(){
-        String rateResult = " ";
-        DecimalFormat df = new DecimalFormat("0.00");
-        int trulyEnrollNumber;
-        Iterator<School> iteSchool = schools.iterator();
-        while (iteSchool.hasNext()){
-            School school = iteSchool.next();
-            if (school.studentsList.size() >= school.getEnrollNum()){
-                trulyEnrollNumber = school.getEnrollNum();
-            }else {
-                trulyEnrollNumber = school.studentsList.size();
-            }
-            rateResult = rateResult + school.getSchoolName() + " 缺額率：" + df.format((school.getEnrollNum()-trulyEnrollNumber)/school.getEnrollNum());
-        }
-        return rateResult;
-    }*/
 
     // 使用StringBuffer輸出
     public StringBuffer schoolEnrollFormOutput(School school) {
@@ -78,7 +61,7 @@ public class SchoolEnrollForm {
             School school = iteSchool.next();
             Iterator<Student> iterator = school.studentsList.iterator();
             finalForm2 = finalForm2 + school.getSchoolName() + " 錄取名單：\n";
-            int tempSize = 0;
+            int tempSize = 1;
 
             if (school.studentsList.size() >= school.getEnrollNum()) {
                 trulyEnrollNumber = school.getEnrollNum();
@@ -95,7 +78,7 @@ public class SchoolEnrollForm {
                 } else if (tempSize > school.getEnrollNum() && tempSize <= school.getTotalEnrollNumber()) {
                     finalForm2 = finalForm2 + "備取學生" + (tempSize - school.getEnrollNum()) + ":" + student.getStuName() + "\n";
                     // System.out.println("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName());
-                    // tempSize++;
+                    tempSize++;
                 } else {
                     break;
                 }
@@ -103,7 +86,7 @@ public class SchoolEnrollForm {
 
             String enrollRateFormat = "0.00";
             DecimalFormat df = new DecimalFormat(enrollRateFormat);
-            float enrollRate = (float) tempSize * 100 / school.getTotalStuNum();
+            float enrollRate = (float) (tempSize-1) * 100 / school.getTotalStuNum();
             float gapRate = (float) (school.getEnrollNum() - trulyEnrollNumber) / (float) school.getEnrollNum() * 100;
             finalForm2 = finalForm2 + "錄取率: " + df.format(enrollRate) + "%" + " 缺額率：" + df.format(gapRate) + "%" + "\n\n";
         }
