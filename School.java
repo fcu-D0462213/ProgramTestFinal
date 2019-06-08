@@ -10,6 +10,7 @@ public class School {
   private int enrollNum;// 錄取人數
   private int standbyEnrollNum;// 備取人數
   private double minEnrollScore;// 最低錄取分數線
+  private int totalStuNum = 0;// 报名人数
   TreeSet<Student> studentsList = new TreeSet<Student>();// 每個學校的報考學生列表
 
   public School(String schoolName, int enrollNum, int standbyEnrollNum, double minEnrollScore) {
@@ -46,4 +47,17 @@ public class School {
   public int getTotalEnrollNumber() {
     return this.getStandbyEnrollNum() + this.getEnrollNum();
   }
+
+  public int getTotalStuNum() {
+    return totalStuNum;
+  }
+
+  public void setTotalStuNum(int totalStuNum) {
+    this.totalStuNum = totalStuNum;
+  }
+
+  public void addStuNum() {
+    this.totalStuNum++;
+  }
+
 }
