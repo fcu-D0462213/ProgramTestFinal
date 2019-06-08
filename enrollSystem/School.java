@@ -1,5 +1,6 @@
 package enrollSystem;
 
+import java.util.Iterator;
 import java.util.TreeSet;
 
 /*
@@ -27,6 +28,15 @@ public class School {
     }
 
     public int getEnrollNum() {
+        Iterator<Student> iterator = studentsList.iterator();
+        int count = 1;
+        while (iterator.hasNext()){
+            Student student = iterator.next();
+            if (count == enrollNum && student.getStuStore() == iterator.next().getStuStore()){
+                enrollNum = enrollNum + 1;
+            }
+            count++;
+        }
         return enrollNum;
     }
 
