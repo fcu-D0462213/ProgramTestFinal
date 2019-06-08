@@ -73,12 +73,12 @@ public class SchoolEnrollForm {
     public String schoolEnrollFormOutput2() {
         String finalForm2 = "";
         Iterator<School> iteSchool = schools.iterator();
+        int trulyEnrollNumber = 0;
         while (iteSchool.hasNext()) {
             School school = iteSchool.next();
             Iterator<Student> iterator = school.studentsList.iterator();
             finalForm2 = finalForm2 + school.getSchoolName() + " 錄取名單：\n";
             int tempSize = 0;
-            int trulyEnrollNumber = 0;
 
             if (school.studentsList.size() >= school.getEnrollNum()) {
                 trulyEnrollNumber = school.getEnrollNum();
@@ -104,7 +104,7 @@ public class SchoolEnrollForm {
             String enrollRateFormat = "0.00";
             DecimalFormat df = new DecimalFormat(enrollRateFormat);
             float enrollRate = (float) tempSize * 100 / school.getTotalStuNum();
-            float gapRate = (school.getEnrollNum() - trulyEnrollNumber) / school.getEnrollNum() * 100;
+            float gapRate = (float) (school.getEnrollNum() - trulyEnrollNumber) / (float) school.getEnrollNum() * 100;
             finalForm2 = finalForm2 + "錄取率: " + df.format(enrollRate) + "%" + " 缺額率：" + df.format(gapRate) + "%" + "\n\n";
         }
         return finalForm2;
