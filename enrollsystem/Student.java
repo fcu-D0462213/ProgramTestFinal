@@ -43,11 +43,7 @@ public class Student implements Comparable {
   @Override
   public boolean equals(Object o) {
     Student student = (Student) o;
-    if (this.getStuStore() >= student.getStuStore()) {
-      return false;
-    } else {
-      return true;
-    }
+    return this.getStuStore() >= student.getStuStore();
 
   }
 

@@ -4,15 +4,15 @@ import java.util.Iterator;
 
 /*
  * 學生所得到的表單
- * 可以考慮增加使用StringBuffer輸出
  * */
 public class StudentEnrollForm {
   public String studentEnrollFormRule(Student[] stu, ApplicationForm[] app, SchoolEnrollForm schoolEnrollForm) {
-    String stuFinalForm = "";
+    StringBuilder stuFinalForm = new StringBuilder();
+    ;
     for (int k = 0; k < stu.length; k++) {
       Student student = stu[k];
       ApplicationForm applicationForm = app[k];
-      stuFinalForm = stuFinalForm + student.getStuId() + " " + student.getStuName() + "\n";
+      stuFinalForm.append(student.getStuId() + " " + student.getStuName() + "\n");
       // 記錄是否正取
       int flag = 0;
       // 找尋學校名單中的學生姓名
@@ -23,7 +23,7 @@ public class StudentEnrollForm {
           if (applicationForm.getChoosedSchoolName(i).equals(schoolEnrollForm.schools.get(j).getSchoolName())) {
             // 成績小於錄取線：未錄取
             if (student.getStuStore() < schoolEnrollForm.schools.get(j).getMinEnrollScore()) {
-              stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n";
+              stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n");
             }
             // 使用iterator遍歷該學校的報名名單
             Iterator<Student> iterator = schoolEnrollForm.schools.get(j).studentsList.iterator();
@@ -33,18 +33,17 @@ public class StudentEnrollForm {
               if (studentInList.getStuId().equals(student.getStuId())) {
                 if (flag == 0) {
                   if (tempSize <= schoolEnrollForm.schools.get(j).getEnrollNum()) {
-                    stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 正取" + tempSize
-                        + "\n";
+                    stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 正取" + tempSize + "\n");
                     flag = 1;
                   } else if (tempSize > schoolEnrollForm.schools.get(j).getEnrollNum()
                       && tempSize <= schoolEnrollForm.schools.get(j).getTotalEnrollNumber()) {
-                    stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 備取"
-                        + (tempSize - schoolEnrollForm.schools.get(j).getEnrollNum()) + "\n";
+                    stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 備取"
+                        + (tempSize - schoolEnrollForm.schools.get(j).getEnrollNum()) + "\n");
                   } else {
-                    stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n";
+                    stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n");
                   }
                 } else {
-                  stuFinalForm = stuFinalForm + schoolEnrollForm.schools.get(j).getSchoolName() + " ----" + "\n";
+                  stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " ----" + "\n");
                 }
               } else if (tempSize <= schoolEnrollForm.schools.get(j).getTotalEnrollNumber()) {
                 tempSize++;
@@ -55,8 +54,9 @@ public class StudentEnrollForm {
           }
         }
       }
-      stuFinalForm += "\n";
+      stuFinalForm.append("\n");
     }
-    return stuFinalForm;
+    String stuFinalForm2 = stuFinalForm.toString();
+    return stuFinalForm2;
   }
 }
