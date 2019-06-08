@@ -1,7 +1,5 @@
 package enrollsystem;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,10 +37,8 @@ public class StudentEnrollFormTest {
     School school10 = new School("中興大學", 6, 3, 84);
     School school11 = new School("科技大學", 6, 3, 82);
 
-    Student[] students = new Student[]{student1, student2, student3, student4, student5,
-            student6, student7, student8, student9, student10,
-            student11, student12, student13, student14, student15,
-            student16, student17, student18};// 學生名單
+    Student[] students = new Student[] { student1, student2, student3, student4, student5, student6, student7, student8,
+        student9, student10, student11, student12, student13, student14, student15, student16, student17, student18 };// 學生名單
 
     StudentEnrollForm studentEnrollForm = new StudentEnrollForm();
 
@@ -62,38 +58,36 @@ public class StudentEnrollFormTest {
     schoolEnrollForm.schools.add(school10);
     schoolEnrollForm.schools.add(school11);
 
-    ApplicationForm app1 = new ApplicationForm(new String[]{"台灣大學", "清華大學"});
-    ApplicationForm app2 = new ApplicationForm(new String[]{"台灣大學", "清華大學"});
-    ApplicationForm app3 = new ApplicationForm(new String[]{"台灣大學", "清華大學", "交通大學", "成功大學"});
-    ApplicationForm app4 = new ApplicationForm(new String[]{"台灣大學", "清華大學", "交通大學", "成功大學"});
-    ApplicationForm app5 = new ApplicationForm(new String[]{"台灣大學", "清華大學", "交通大學", "成功大學"});
-    ApplicationForm app6 = new ApplicationForm(new String[]{"台灣大學", "交通大學", "成功大學", "政治大學"});
-    ApplicationForm app7 = new ApplicationForm(new String[]{"台灣大學", "清華大學", "成功大學", "政治大學"});
-    ApplicationForm app8 = new ApplicationForm(new String[]{"清華大學", "成功大學", "政治大學", "中山大學"});
-    ApplicationForm app9 = new ApplicationForm(new String[]{"交通大學", "政治大學", "中山大學", "逢甲大學"});
-    ApplicationForm app10 = new ApplicationForm(new String[]{"成功大學", "政治大學", "中山大學", "逢甲大學"});
-    ApplicationForm app11 = new ApplicationForm(new String[]{"台灣大學", "中山大學", "逢甲大學", "中原大學"});
-    ApplicationForm app12 = new ApplicationForm(new String[]{"清華大學", "中原大學", "逢甲大學", "中山大學"});
-    ApplicationForm app13 = new ApplicationForm(new String[]{"中央大學", "中原大學", "逢甲大學", "中興大學"});
-    ApplicationForm app14 = new ApplicationForm(new String[]{"成功大學", "逢甲大學", "中興大學", "科技大學"});
-    ApplicationForm app15 = new ApplicationForm(new String[]{"中原大學", "中興大學", "科技大學"});
-    ApplicationForm app16 = new ApplicationForm(new String[]{"中原大學", "中央大學", "中興大學", "科技大學"});
-    ApplicationForm app17 = new ApplicationForm(new String[]{"交通大學", "中原大學", "中央大學", "中興大學"});
-    ApplicationForm app18 = new ApplicationForm(new String[]{"逢甲大學", "中原大學", "中興大學", "科技大學"});
-    ApplicationForm[] apps = new ApplicationForm[]{app1, app2, app3, app4, app5,
-            app6, app7, app8, app9, app10,
-            app11, app12, app13, app14, app15,
-            app16, app17, app18};
+    ApplicationForm app1 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
+    ApplicationForm app2 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
+    ApplicationForm app3 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
+    ApplicationForm app4 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
+    ApplicationForm app5 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
+    ApplicationForm app6 = new ApplicationForm(new String[] { "台灣大學", "交通大學", "成功大學", "政治大學" });
+    ApplicationForm app7 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "成功大學", "政治大學" });
+    ApplicationForm app8 = new ApplicationForm(new String[] { "清華大學", "成功大學", "政治大學", "中山大學" });
+    ApplicationForm app9 = new ApplicationForm(new String[] { "交通大學", "政治大學", "中山大學", "逢甲大學" });
+    ApplicationForm app10 = new ApplicationForm(new String[] { "成功大學", "政治大學", "中山大學", "逢甲大學" });
+    ApplicationForm app11 = new ApplicationForm(new String[] { "台灣大學", "中山大學", "逢甲大學", "中原大學" });
+    ApplicationForm app12 = new ApplicationForm(new String[] { "清華大學", "中原大學", "逢甲大學", "中山大學" });
+    ApplicationForm app13 = new ApplicationForm(new String[] { "中央大學", "中原大學", "逢甲大學", "中興大學" });
+    ApplicationForm app14 = new ApplicationForm(new String[] { "成功大學", "逢甲大學", "中興大學", "科技大學" });
+    ApplicationForm app15 = new ApplicationForm(new String[] { "中原大學", "中興大學", "科技大學" });
+    ApplicationForm app16 = new ApplicationForm(new String[] { "中原大學", "中央大學", "中興大學", "科技大學" });
+    ApplicationForm app17 = new ApplicationForm(new String[] { "交通大學", "中原大學", "中央大學", "中興大學" });
+    ApplicationForm app18 = new ApplicationForm(new String[] { "逢甲大學", "中原大學", "中興大學", "科技大學" });
+    ApplicationForm[] apps = new ApplicationForm[] { app1, app2, app3, app4, app5, app6, app7, app8, app9, app10, app11,
+        app12, app13, app14, app15, app16, app17, app18 };
 
-    schoolEnrollForm.schoolEnrollRule(students, apps);//學校的錄取名單
+    schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
 
     System.out.println(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
-    System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());//印出學校榜單
+    System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
   }
 
   @Test // 學生錄取測試
-  public void StudentFinalEnrollFormTest() {
+  public void studentFinalEnrollFormTest() {
   }
 
 }
