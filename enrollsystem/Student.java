@@ -48,13 +48,13 @@ public class Student implements Comparable {
     if (this.getClass() != o.getClass())
       return false;
 
-    if (o != null && o instanceof Student) {
+    if (o instanceof Student) {
       Student student = (Student) o;
       return student.stuId == this.stuId
           && Double.doubleToLongBits(student.stuScore) == Double.doubleToLongBits(this.stuScore)
           && student.stuName == this.stuName;
     }
-    return true;
+    return false;
 
   }
 
