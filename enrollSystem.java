@@ -78,9 +78,25 @@ public class enrollSystem {
     applicationForm app1 = new applicationForm(new String[] { "台灣大學", "清華大學", "中原大學" });// 創立stu1志願
     applicationForm app2 = new applicationForm(new String[] { "台灣大學", "中山大學", "中原大學" });
     applicationForm app3 = new applicationForm(new String[] { "清華大學", "中山大學", "逢甲大學" });
-    applicationForm app4 = new applicationForm(new String[] { "交通大學", "清華大學", "中山大學" });
+    applicationForm app4 = new applicationForm(new String[] { "交通大學", "清華大學", "中興大學" });
     applicationForm app5 = new applicationForm(new String[] { "交通大學", "清華大學", "成功大學" });
-    applicationForm[] apps = new applicationForm[] { app1, app2, app3, app4, app5 };
+    applicationForm app6 = new applicationForm(new String[] { "東海大學", "中興大學", "逢甲大學" });
+    applicationForm app7 = new applicationForm(new String[] { "交通大學", "清華大學", "東海大學" });
+    applicationForm app8 = new applicationForm(new String[] { "靜宜大學", "科技大學", "成功大學" });
+    applicationForm app9 = new applicationForm(new String[] { "科技大學", "中山大學", "輔仁大學" });
+    applicationForm app10 = new applicationForm(new String[] { "交通大學", "清華大學", "靜宜大學" });
+    applicationForm app11 = new applicationForm(new String[] { "科技大學", "輔仁大學", "成功大學" });
+    applicationForm app12 = new applicationForm(new String[] { "東海大學", "淡江大學", "長庚大學" });
+    applicationForm app13 = new applicationForm(new String[] { "交通大學", "靜宜大學", "淡江大學" });
+    applicationForm app14 = new applicationForm(new String[] { "靜宜大學", "嘉義大學", "長庚大學" });
+    applicationForm app15 = new applicationForm(new String[] { "輔仁大學", "中山大學", "逢甲大學" });
+    applicationForm app16 = new applicationForm(new String[] { "淡江大學", "清華大學", "嘉義大學" });
+    applicationForm app17 = new applicationForm(new String[] { "長庚大學", "清華大學", "成功大學" });
+    applicationForm app18 = new applicationForm(new String[] { "長庚大學", "靜宜大學", "嘉義大學" });
+    applicationForm[] apps = new applicationForm[] { app1, app2, app3, app4, app5,
+                                                     app6, app7, app8, app9, app10,
+                                                     app11, app12, app13, app14, app15,
+                                                     app16, app17, app18};
 
     schoolEnrollForm.schoolEnrollRule(students, apps);//學校的錄取名單
 
