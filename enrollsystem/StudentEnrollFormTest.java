@@ -3,6 +3,8 @@ package enrollsystem;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.istack.internal.logging.Logger;
+
 public class StudentEnrollFormTest {
   @Before
   public void setup() {
@@ -81,9 +83,10 @@ public class StudentEnrollFormTest {
 
     schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
 
-    System.out.println(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
+    Logger logger = null;
+    logger.info(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
-    System.out.println(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
+    logger.info(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
   }
 
   @Test // 學生錄取測試
