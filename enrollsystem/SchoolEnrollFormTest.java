@@ -59,25 +59,25 @@ public class SchoolEnrollFormTest {
     schoolEnrollForm.schools.add(school10);
     schoolEnrollForm.schools.add(school11);
 
-    applicationForm app1 = new applicationForm(new String[] { "台灣大學", "清華大學" });
-    applicationForm app2 = new applicationForm(new String[] { "台灣大學", "清華大學" });
-    applicationForm app3 = new applicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
-    applicationForm app4 = new applicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
-    applicationForm app5 = new applicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
-    applicationForm app6 = new applicationForm(new String[] { "台灣大學", "交通大學", "成功大學", "政治大學" });
-    applicationForm app7 = new applicationForm(new String[] { "台灣大學", "清華大學", "成功大學", "政治大學" });
-    applicationForm app8 = new applicationForm(new String[] { "清華大學", "成功大學", "政治大學", "中山大學" });
-    applicationForm app9 = new applicationForm(new String[] { "交通大學", "政治大學", "中山大學", "逢甲大學" });
-    applicationForm app10 = new applicationForm(new String[] { "成功大學", "政治大學", "中山大學", "逢甲大學" });
-    applicationForm app11 = new applicationForm(new String[] { "台灣大學", "中山大學", "逢甲大學", "中原大學" });
-    applicationForm app12 = new applicationForm(new String[] { "清華大學", "中原大學", "逢甲大學", "中山大學" });
-    applicationForm app13 = new applicationForm(new String[] { "中央大學", "中原大學", "逢甲大學", "中興大學" });
-    applicationForm app14 = new applicationForm(new String[] { "成功大學", "逢甲大學", "中興大學", "科技大學" });
-    applicationForm app15 = new applicationForm(new String[] { "中原大學", "中興大學", "科技大學" });
-    applicationForm app16 = new applicationForm(new String[] { "中原大學", "中央大學", "中興大學", "科技大學" });
-    applicationForm app17 = new applicationForm(new String[] { "交通大學", "中原大學", "中央大學", "中興大學" });
-    applicationForm app18 = new applicationForm(new String[] { "逢甲大學", "中原大學", "中興大學", "科技大學" });
-    applicationForm[] apps = new applicationForm[] { app1, app2, app3, app4, app5, app6, app7, app8, app9, app10, app11,
+    ApplicationForm app1 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
+    ApplicationForm app2 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
+    ApplicationForm app3 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
+    ApplicationForm app4 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
+    ApplicationForm app5 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
+    ApplicationForm app6 = new ApplicationForm(new String[] { "台灣大學", "交通大學", "成功大學", "政治大學" });
+    ApplicationForm app7 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "成功大學", "政治大學" });
+    ApplicationForm app8 = new ApplicationForm(new String[] { "清華大學", "成功大學", "政治大學", "中山大學" });
+    ApplicationForm app9 = new ApplicationForm(new String[] { "交通大學", "政治大學", "中山大學", "逢甲大學" });
+    ApplicationForm app10 = new ApplicationForm(new String[] { "成功大學", "政治大學", "中山大學", "逢甲大學" });
+    ApplicationForm app11 = new ApplicationForm(new String[] { "台灣大學", "中山大學", "逢甲大學", "中原大學" });
+    ApplicationForm app12 = new ApplicationForm(new String[] { "清華大學", "中原大學", "逢甲大學", "中山大學" });
+    ApplicationForm app13 = new ApplicationForm(new String[] { "中央大學", "中原大學", "逢甲大學", "中興大學" });
+    ApplicationForm app14 = new ApplicationForm(new String[] { "成功大學", "逢甲大學", "中興大學", "科技大學" });
+    ApplicationForm app15 = new ApplicationForm(new String[] { "中原大學", "中興大學", "科技大學" });
+    ApplicationForm app16 = new ApplicationForm(new String[] { "中原大學", "中央大學", "中興大學", "科技大學" });
+    ApplicationForm app17 = new ApplicationForm(new String[] { "交通大學", "中原大學", "中央大學", "中興大學" });
+    ApplicationForm app18 = new ApplicationForm(new String[] { "逢甲大學", "中原大學", "中興大學", "科技大學" });
+    ApplicationForm[] apps = new ApplicationForm[] { app1, app2, app3, app4, app5, app6, app7, app8, app9, app10, app11,
         app12, app13, app14, app15, app16, app17, app18 };
 
     schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
@@ -88,7 +88,7 @@ public class SchoolEnrollFormTest {
   }
 
   @Test // 學校錄取名單測試
-  public void SchoolEnrollFormTest1() {
+  public void schoolEnrollFormTest1() {
   }
 
 }

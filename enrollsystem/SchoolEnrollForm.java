@@ -11,7 +11,7 @@ public class SchoolEnrollForm {
   ArrayList<School> schools = new ArrayList<>();// 所有學校的名單
 
   // 每個學校加入超過最低分數線的學生,并排序
-  public void schoolEnrollRule(Student[] student, applicationForm[] appForm) {
+  public void schoolEnrollRule(Student[] student, ApplicationForm[] appForm) {
     Iterator<School> iteSchool = schools.iterator();
     while (iteSchool.hasNext()) {
       School school = iteSchool.next();
@@ -49,11 +49,10 @@ public class SchoolEnrollForm {
         Student student = iterator.next();
         if (tempSize <= school.getEnrollNum()) {
           finalForm2 = finalForm2 + "正取學生" + tempSize + ":" + student.getStuName() + "\n";
-          // System.out.println("正取學生"+tempSize+":"+student.getStuName());
           tempSize++;
         } else if (tempSize > school.getEnrollNum() && tempSize <= school.getTotalEnrollNumber()) {
           finalForm2 = finalForm2 + "備取學生" + (tempSize - school.getEnrollNum()) + ":" + student.getStuName() + "\n";
-          // System.out.println("備取學生"+(tempSize-school.getEnrollNum())+":"+student.getStuName());
+
           tempSize++;
         } else {
           break;
