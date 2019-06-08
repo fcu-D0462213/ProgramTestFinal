@@ -21,7 +21,7 @@ public class StudentEnrollForm {
           /* 學校List */
           if (applicationForm.getChoosedSchoolName(i).equals(schoolEnrollForm.schools.get(j).getSchoolName())) {
             // 成績小於錄取線：未錄取
-            if (student.getStuStore() < schoolEnrollForm.schools.get(j).getMinEnrollScore()) {
+            if (student.getStuScore() < schoolEnrollForm.schools.get(j).getMinEnrollScore()) {
               stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n");
             }
             // 使用iterator遍歷該學校的報名名單

@@ -19,7 +19,7 @@ public class SchoolEnrollForm {
         for (int j = 0; j < appForm[i].getNumOfApp(); j++) {
           if (appForm[i].getChoosedSchoolName(j).equals(school.getSchoolName())) {
             school.addStuNum();
-            if (student[i].getStuStore() >= school.getMinEnrollScore()) {
+            if (student[i].getStuScore() >= school.getMinEnrollScore()) {
               school.studentsList.add(student[i]);
             }
           }

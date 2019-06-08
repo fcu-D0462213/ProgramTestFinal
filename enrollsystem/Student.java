@@ -42,14 +42,26 @@ public class Student implements Comparable {
 
   @Override
   public boolean equals(Object o) {
-    return (this == o);
+    if (o == this)
+      return true;
+
+    if (this.getClass() != o.getClass())
+      return false;
+
+    if (o != null && o instanceof Student) {
+      Student student = (Student) o;
+      return student.stuId == this.stuId
+          && Double.doubleToLongBits(student.stuScore) == Double.doubleToLongBits(this.stuScore)
+          && student.stuName == this.stuName;
+    }
+    return true;
 
   }
 
   @Override
   public int hashCode() {
     int hash = 17;
-    hash = hash * 31 + getStuName().hashCode();
+    hash = hash * 31 + stuName.hashCode();
     return hash;
   }
 
