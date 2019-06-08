@@ -14,7 +14,7 @@ public class finalEnrollForm {
             // 記錄是否正取
             int flag = 0;
             // 找尋學校名單中的學生姓名
-            for (int i = 0; i < applicationForm.getChoosedSchoolName().length; i++) {
+            for (int i = 0; i < applicationForm.getNumOfApp(); i++) {
                 for (int j = 0; j < schoolEnrollForm.schools.size(); j++) {
                     int tempSize = 1;
                     /* 學校List */

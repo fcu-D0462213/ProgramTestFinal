@@ -16,7 +16,7 @@ public class SchoolEnrollForm {
         while (iteSchool.hasNext()) {
             School school = iteSchool.next();
             for (int i = 0; i < student.length; i++) {
-                for (int j = 0; j < 3; j++) {
+                for (int j = 0; j < appForm[i].getNumOfApp(); j++) {
                     if (appForm[i].choosedSchoolName[j].equals(school.getSchoolName())) {
                         school.addStuNum();
                         if (student[i].getStuStore() >= school.getMinEnrollScore()) {

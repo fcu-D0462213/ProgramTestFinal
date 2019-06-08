@@ -36,21 +36,6 @@ public class SchoolEnrollFormTest {
 
   @Test // 學校錄取名單測試
   public void SchoolEnrollFormTest1() {
-    StringBuffer expected = null;
-    String expected2 = "";
-    student1 = new Student("STU0002016001", "張三", 100);
-    student2 = new Student("STU0002016002", "李四", 99);
-    student3 = new Student("STU0002016003", "小明", 93);
-    student4 = new Student("STU0002016004", "王五", 97);
-    student5 = new Student("STU0002016005", "小紅", 91);
-    students = new Student[] { student1, student2, student3, student5, student4 };// 假設這些同學投了逢甲
-
-    schoolEnrollForm = new SchoolEnrollForm();
-    schoolEnrollForm.schoolEnrollRule(school1, students);
-    schoolEnrollForm.schoolEnrollRule(school2, students);
-    // assertEquals(expected,schoolEnrollForm.schoolEnrollFormOutput(school));
-    // assertEquals(expected2,schoolEnrollForm.schoolEnrollFormOutput2(school));
-    assertEquals(expected, schoolEnrollForm.schoolEnrollFormOutput2(school2));
   }
 
 }
