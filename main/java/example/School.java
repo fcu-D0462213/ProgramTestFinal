@@ -49,10 +49,12 @@ public class School {
     public void setlowerScoreList() {
         Iterator<Student> stuIte = studentsList.iterator();
         Student stu;
-        if (stuIte.hasNext()) {
+        while (stuIte.hasNext()) {
             stu = stuIte.next();
-            if (stu.getStuScore() < this.minEnrollScore)
+            if (stu.getStuScore() < this.minEnrollScore){
                 outEnrollList.add(stu);
+                stuIte.remove();
+            }
         }
     }
 

@@ -1,5 +1,7 @@
 package test.java.example;
 
+import java.lang.System;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -7,94 +9,66 @@ import main.java.example.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class SchoolEnrollFormTest {
 
-  @Before
-  public void setup() {
-    Student student1 = new Student("160001", "張三", 100);
-    Student student2 = new Student("160002", "赖恬甜", 100);
-    Student student3 = new Student("160003", "王喆", 99);
-    Student student4 = new Student("160004", "贾泽", 99);
-    Student student5 = new Student("160005", "李四", 97);
-    Student student6 = new Student("160006", "小明", 96);
-    Student student7 = new Student("160007", "李紅", 96);
-    Student student8 = new Student("160008", "張飛", 94);
-    Student student9 = new Student("160009", "王恐怕", 93);
-    Student student10 = new Student("160010", "张天文", 92);
-    Student student11 = new Student("160011", "李丹丹", 91);
-    Student student12 = new Student("160012", "王某某", 90);
-    Student student13 = new Student("160013", "宋晓锋", 89);
-    Student student14 = new Student("160014", "赵传家", 88);
-    Student student15 = new Student("160015", "李世石", 87);
-    Student student16 = new Student("160016", "王宝平", 86);
-    Student student17 = new Student("160017", "丁页如", 85);
-    Student student18 = new Student("160018", "萧枸", 83);
+    School school = new School("成功大學", 5, 4, 90);
 
-    School school1 = new School("台灣大學", 1, 1, 96);
-    School school2 = new School("清華大學", 2, 1, 95);
-    School school3 = new School("交通大學", 2, 1, 94);
-    School school4 = new School("成功大學", 3, 1, 93);
-    School school5 = new School("政治大學", 3, 1, 92);
-    School school6 = new School("中山大學", 4, 1, 91);
-    School school7 = new School("逢甲大學", 5, 3, 90);
-    School school8 = new School("中原大學", 5, 3, 88);
-    School school9 = new School("中央大學", 5, 3, 86);
-    School school10 = new School("中興大學", 6, 3, 84);
-    School school11 = new School("科技大學", 6, 3, 82);
+    Student student1 = new Student("160001", "張三", 0);
+    Student student2 = new Student("160002", "赖恬甜", 0);
+    Student student3 = new Student("160003", "王喆", 0);
+    Student student4 = new Student("160004", "贾泽", 0);
+    Student student5 = new Student("160005", "李四", 0);
+    Student student6 = new Student("160006", "小明", 0);
+    Student student7 = new Student("160007", "李紅", 0);
+    Student student8 = new Student("160008", "張飛", 0);
+    Student student9 = new Student("160009", "王恐怕", 0);
+    ApplicationForm app = new ApplicationForm(new String[]{"成功大學"});
+    ApplicationForm[] apps = new ApplicationForm[]{app, app, app,
+                                                   app, app, app,
+                                                   app, app, app,};
 
-    Student[] students = new Student[] { student1, student2, student3, student4, student5, student6, student7, student8,
-        student9, student10, student11, student12, student13, student14, student15, student16, student17, student18 };// 學生名單
+    SchoolEnrollForm schoolEnrollForm;
 
     StudentEnrollForm studentEnrollForm = new StudentEnrollForm();
+    @Before
+    public void setup() {
+        schoolEnrollForm = new SchoolEnrollForm();
+        schoolEnrollForm.setSchool(school);
+    }
 
-    // 創建學校錄取名單物件
-    SchoolEnrollForm schoolEnrollForm = new SchoolEnrollForm();
+    @Test // 學校錄取名單測試
+    public void schoolEnrollFormTest1() {
+        Student[] students = new Student[]{student1, student2, student3,
+                student4, student5, student6,
+                student7, student8, student9};
+        student1.setStuScore(80.4);
+        student2.setStuScore(70.2);
+        student3.setStuScore(60.6);
+        student4.setStuScore(50.8);
+        student5.setStuScore(89.2);
+        student6.setStuScore(89.9);
+        student7.setStuScore(88.1);
+        student8.setStuScore(55.1);
+        student9.setStuScore(16.1);
+        schoolEnrollForm.schoolEnrollRule(students, apps);
+        System.out.println(schoolEnrollForm.schoolEnrollFormOutput());
 
-    // 設立所有學校名單
-    schoolEnrollForm.setSchool(school1);
-    schoolEnrollForm.setSchool(school2);
-    schoolEnrollForm.setSchool(school3);
-    schoolEnrollForm.setSchool(school4);
-    schoolEnrollForm.setSchool(school5);
-    schoolEnrollForm.setSchool(school6);
-    schoolEnrollForm.setSchool(school7);
-    schoolEnrollForm.setSchool(school8);
-    schoolEnrollForm.setSchool(school9);
-    schoolEnrollForm.setSchool(school10);
-    schoolEnrollForm.setSchool(school11);
+        studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm);//學生錄取信息
+        System.out.println(studentEnrollForm.schoolEnrollFormOutput());
+        assertEquals("成功大學 (正取名額:5 備取名額:4 報名人數:9) 錄取名單：\n" +
+                "未錄取學生:小明\n" +
+                "未錄取學生:李四\n" +
+                "未錄取學生:李紅\n" +
+                "未錄取學生:張三\n" +
+                "未錄取學生:赖恬甜\n" +
+                "未錄取學生:王喆\n" +
+                "未錄取學生:張飛\n" +
+                "未錄取學生:贾泽\n" +
+                "未錄取學生:王恐怕\n" +
+                "錄取率:0.00% 缺額率：100.00%\n",schoolEnrollForm.schoolEnrollFormOutput());
 
-    ApplicationForm app1 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
-    ApplicationForm app2 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
-    ApplicationForm app3 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
-    ApplicationForm app4 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
-    ApplicationForm app5 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
-    ApplicationForm app6 = new ApplicationForm(new String[] { "台灣大學", "交通大學", "成功大學", "政治大學" });
-    ApplicationForm app7 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "成功大學", "政治大學" });
-    ApplicationForm app8 = new ApplicationForm(new String[] { "清華大學", "成功大學", "政治大學", "中山大學" });
-    ApplicationForm app9 = new ApplicationForm(new String[] { "交通大學", "政治大學", "中山大學", "逢甲大學" });
-    ApplicationForm app10 = new ApplicationForm(new String[] { "成功大學", "政治大學", "中山大學", "逢甲大學" });
-    ApplicationForm app11 = new ApplicationForm(new String[] { "台灣大學", "中山大學", "逢甲大學", "中原大學" });
-    ApplicationForm app12 = new ApplicationForm(new String[] { "清華大學", "中原大學", "逢甲大學", "中山大學" });
-    ApplicationForm app13 = new ApplicationForm(new String[] { "中央大學", "中原大學", "逢甲大學", "中興大學" });
-    ApplicationForm app14 = new ApplicationForm(new String[] { "成功大學", "逢甲大學", "中興大學", "科技大學" });
-    ApplicationForm app15 = new ApplicationForm(new String[] { "中原大學", "中興大學", "科技大學" });
-    ApplicationForm app16 = new ApplicationForm(new String[] { "中原大學", "中央大學", "中興大學", "科技大學" });
-    ApplicationForm app17 = new ApplicationForm(new String[] { "交通大學", "中原大學", "中央大學", "中興大學" });
-    ApplicationForm app18 = new ApplicationForm(new String[] { "逢甲大學", "中原大學", "中興大學", "科技大學" });
-    ApplicationForm[] apps = new ApplicationForm[] { app1, app2, app3, app4, app5, app6, app7, app8, app9, app10, app11,
-        app12, app13, app14, app15, app16, app17, app18 };
-
-    schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
-    studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm);//學生錄取信息
-    Logger log = Logger.getLogger("lavasoft");
-    log.setLevel(Level.INFO);
-
-    log.info(studentEnrollForm.schoolEnrollFormOutput());//印出學生的榜單
-    log.info(schoolEnrollForm.schoolEnrollFormOutput());// 印出學校榜單
-  }
-
-  @Test // 學校錄取名單測試
-  public void schoolEnrollFormTest1() {
-  }
+    }
 
 }
