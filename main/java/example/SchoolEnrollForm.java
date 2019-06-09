@@ -1,4 +1,4 @@
-package enrollsystem;
+package main.java.example;
 /*
  * 學校的錄取規則
  * */
@@ -8,8 +8,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SchoolEnrollForm {
-  ArrayList<School> schools = new ArrayList<>();// 所有學校的名單
+  private ArrayList<School> schools = new ArrayList<>();// 所有學校的名單
 
+  public void setSchool(School school) {
+    this.schools.add(school);
+  }
+
+  public ArrayList<School> getSchool() {
+    return schools;
+  }
   // 每個學校加入所有并排序
   public void schoolEnrollRule(Student[] student, ApplicationForm[] appForm) {
     for (School school : schools) {

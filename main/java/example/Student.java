@@ -1,4 +1,4 @@
-package enrollsystem;
+package main.java.example;
 
 /*
  * 學生class

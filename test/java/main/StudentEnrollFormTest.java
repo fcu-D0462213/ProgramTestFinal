@@ -1,8 +1,9 @@
-package enrollsystem;
+package test.java.main;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import main.java.example.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,17 +50,17 @@ public class StudentEnrollFormTest {
     SchoolEnrollForm schoolEnrollForm = new SchoolEnrollForm();
 
     // 設立所有學校名單
-    schoolEnrollForm.schools.add(school1);
-    schoolEnrollForm.schools.add(school2);
-    schoolEnrollForm.schools.add(school3);
-    schoolEnrollForm.schools.add(school4);
-    schoolEnrollForm.schools.add(school5);
-    schoolEnrollForm.schools.add(school6);
-    schoolEnrollForm.schools.add(school7);
-    schoolEnrollForm.schools.add(school8);
-    schoolEnrollForm.schools.add(school9);
-    schoolEnrollForm.schools.add(school10);
-    schoolEnrollForm.schools.add(school11);
+    schoolEnrollForm.setSchool(school1);
+    schoolEnrollForm.setSchool(school2);
+    schoolEnrollForm.setSchool(school3);
+    schoolEnrollForm.setSchool(school4);
+    schoolEnrollForm.setSchool(school5);
+    schoolEnrollForm.setSchool(school6);
+    schoolEnrollForm.setSchool(school7);
+    schoolEnrollForm.setSchool(school8);
+    schoolEnrollForm.setSchool(school9);
+    schoolEnrollForm.setSchool(school10);
+    schoolEnrollForm.setSchool(school11);
 
     ApplicationForm app1 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
     ApplicationForm app2 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });

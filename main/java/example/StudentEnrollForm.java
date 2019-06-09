@@ -1,4 +1,4 @@
-package enrollsystem;
+package main.java.example;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -55,7 +55,7 @@ public class StudentEnrollForm {
 
             //历遍第k個學生的志願里的每个学校i
             for (int i = 0; i < app[k].getNumOfApp(); i++) {
-                for (School school : schoolEnrollForm.schools) {
+                for (School school : schoolEnrollForm.getSchool()) {
                     if (school.getSchoolName().equals(app[k].getChoosedSchoolName(i))) {
                         Iterator<Student> enrollIter = school.enrollList.iterator();
                         Iterator<Student> standbyIter = school.standbyEnrollList.iterator();

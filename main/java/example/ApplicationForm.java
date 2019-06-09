@@ -1,4 +1,4 @@
-package enrollsystem;
+package main.java.example;
 
 /*
  * 當前設定為：學生的申請表
