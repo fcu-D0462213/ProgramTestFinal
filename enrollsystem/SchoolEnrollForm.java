@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class SchoolEnrollForm {
   ArrayList<School> schools = new ArrayList<>();// 所有學校的名單
 
-  // 每個學校加入超過最低分數線的學生,并排序
+  // 每個學校加入所有并排序
   public void schoolEnrollRule(Student[] student, ApplicationForm[] appForm) {
     for (School school : schools) {
       for (int i = 0; i < student.length; i++) {
