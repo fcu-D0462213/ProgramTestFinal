@@ -1,4 +1,4 @@
-package test.java.main;
+package test.java.example;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,7 +62,7 @@ public class StudentEnrollFormTest {
     schoolEnrollForm.setSchool(school10);
     schoolEnrollForm.setSchool(school11);
 
-    ApplicationForm app1 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
+    ApplicationForm app1 = new ApplicationForm(new String[] { "台灣大學"});
     ApplicationForm app2 = new ApplicationForm(new String[] { "台灣大學", "清華大學" });
     ApplicationForm app3 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });
     ApplicationForm app4 = new ApplicationForm(new String[] { "台灣大學", "清華大學", "交通大學", "成功大學" });

@@ -1,4 +1,4 @@
-package test.java.main;
+package test.java.example;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
