@@ -10,24 +10,24 @@ public class SchoolEnrollFormTest {
 
   @Before
   public void setup() {
-    Student student1 = new Student("STU20160001", "張三", 100);
-    Student student2 = new Student("STU20160002", "赖恬甜", 100);
-    Student student3 = new Student("STU20160003", "王喆", 99);
-    Student student4 = new Student("STU20160004", "贾泽", 99);
-    Student student5 = new Student("STU20160005", "李四", 97);
-    Student student6 = new Student("STU20160006", "小明", 96);
-    Student student7 = new Student("STU20160007", "李紅", 96);
-    Student student8 = new Student("STU20160008", "張飛", 94);
-    Student student9 = new Student("STU20160009", "王恐怕", 93);
-    Student student10 = new Student("STU20160010", "张天文", 92);
-    Student student11 = new Student("STU20160011", "李丹丹", 91);
-    Student student12 = new Student("STU20160012", "王某某", 90);
-    Student student13 = new Student("STU20160013", "宋晓锋", 89);
-    Student student14 = new Student("STU20160014", "赵传家", 88);
-    Student student15 = new Student("STU20160015", "李世石", 87);
-    Student student16 = new Student("STU20160016", "王宝平", 86);
-    Student student17 = new Student("STU20160017", "丁页如", 85);
-    Student student18 = new Student("STU20160018", "萧枸", 83);
+    Student student1 = new Student("160001", "張三", 100);
+    Student student2 = new Student("160002", "赖恬甜", 100);
+    Student student3 = new Student("160003", "王喆", 99);
+    Student student4 = new Student("160004", "贾泽", 99);
+    Student student5 = new Student("160005", "李四", 97);
+    Student student6 = new Student("160006", "小明", 96);
+    Student student7 = new Student("160007", "李紅", 96);
+    Student student8 = new Student("160008", "張飛", 94);
+    Student student9 = new Student("160009", "王恐怕", 93);
+    Student student10 = new Student("160010", "张天文", 92);
+    Student student11 = new Student("160011", "李丹丹", 91);
+    Student student12 = new Student("160012", "王某某", 90);
+    Student student13 = new Student("160013", "宋晓锋", 89);
+    Student student14 = new Student("160014", "赵传家", 88);
+    Student student15 = new Student("160015", "李世石", 87);
+    Student student16 = new Student("160016", "王宝平", 86);
+    Student student17 = new Student("160017", "丁页如", 85);
+    Student student18 = new Student("160018", "萧枸", 83);
 
     School school1 = new School("台灣大學", 1, 1, 96);
     School school2 = new School("清華大學", 2, 1, 95);

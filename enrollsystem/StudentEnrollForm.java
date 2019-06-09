@@ -30,7 +30,7 @@ public class StudentEnrollForm {
               int tempSize = 1;
               while (enrollIter.hasNext()) {
                 Student student = enrollIter.next();
-                if (student.getStuId().equals(stu[k].getStuId())) {
+                if (Integer.valueOf(student.getStuId()).equals(Integer.valueOf(stu[k].getStuId()))) {
                   app[k].setSchoolState(i, "正取" + tempSize);
                   flag = 1;
                   break;
@@ -43,13 +43,13 @@ public class StudentEnrollForm {
                 tempSize = 1;
                 while (standbyIter.hasNext()) {
                   Student student = standbyIter.next();
-                  if (student.getStuId().equals(stu[k].getStuId())) {
+                  if (Integer.valueOf(student.getStuId()).equals(Integer.valueOf(stu[k].getStuId()))) {
                     app[k].setSchoolState(i, "備取" + tempSize);
                   }
                 }
                 while (outIter.hasNext()) {
                   Student student = outIter.next();
-                  if (student.getStuId().equals(stu[k].getStuId())) {
+                  if (Integer.valueOf(student.getStuId()).equals(Integer.valueOf(stu[k].getStuId()))) {
                     app[k].setSchoolState(i, "未錄取");
                   }
                 }

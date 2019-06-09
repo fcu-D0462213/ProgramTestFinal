@@ -36,8 +36,8 @@ public class Student implements Comparable {
     if (this.getStuScore() > student.getStuScore()) {
       return -1;
       // 同分按照id排序 小到大
-    } else if (this.getStuScore() == student.getStuScore() && this.getStuId().compareTo(student.getStuId()) < 0) {
-      return -1;
+    } else if (this.getStuScore() == student.getStuScore() && Integer.valueOf(this.getStuId()) < Integer.valueOf(student.getStuId())) {
+        return -1;
     } else {
       return 1;
     }
@@ -66,10 +66,10 @@ public class Student implements Comparable {
   // }
   //
   // @Override
-  // public int hashCode() {
-  // int hash = 17;
-  // hash = hash * 31 + stuName.hashCode();
-  // return hash;
-  // }
+  //  // public int hashCode() {
+  //  // int hash = 17;
+  //  // hash = hash * 31 + stuName.hashCode();
+  //  // return hash;
+  //  // }
 
 }
