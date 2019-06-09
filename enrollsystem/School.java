@@ -25,6 +25,7 @@ public class School {
     this.standbyEnrollNum = standbyEnrollNum;
     this.minEnrollScore = minEnrollScore;
   }
+
   public void setSchoolStuList() {
     Iterator<Student> stuIte = studentsList.iterator();
     Student stu;
@@ -44,8 +45,8 @@ public class School {
     for (int i = 0; i < standbyEnrollNum; i++) {
       if (stuIte.hasNext()) {
         stu = stuIte.next();
-        //檢測正取同分
-        while(stu.getStuScore() == enrollMinScore){
+        // 檢測正取同分
+        while (stu.getStuScore() == enrollMinScore) {
           enrollList.add(stu);
           enrollNum++;
           stu = stuIte.next();
@@ -60,14 +61,14 @@ public class School {
     for (int i = 0; i < totalStuNum - enrollNum - standbyEnrollNum; i++) {
       if (stuIte.hasNext()) {
         stu = stuIte.next();
-        //檢測正取同分
-        while(stu.getStuScore() == enrollMinScore){
+        // 檢測正取同分
+        while (stu.getStuScore() == enrollMinScore) {
           enrollList.add(stu);
           enrollNum++;
           stu = stuIte.next();
         }
-        //檢測備取同分
-        while(stu.getStuScore() == standbyMinScore){
+        // 檢測備取同分
+        while (stu.getStuScore() == standbyMinScore) {
           standbyEnrollList.add(stu);
           standbyEnrollNum++;
           stu = stuIte.next();
@@ -76,6 +77,7 @@ public class School {
       }
     }
   }
+
   public String getSchoolName() {
     return schoolName;
   }
@@ -86,14 +88,6 @@ public class School {
 
   public int getStandbyEnrollNum() {
     return standbyEnrollNum;
-  }
-
-  public double getMinEnrollScore() {
-    return minEnrollScore;
-  }
-
-  public int getTotalEnrollNumber() {
-    return this.getStandbyEnrollNum() + this.getEnrollNum();
   }
 
   public int getTotalStuNum() {
