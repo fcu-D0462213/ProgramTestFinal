@@ -12,58 +12,65 @@ public class SchoolEnrollForm {
 
   // 每個學校加入超過最低分數線的學生,并排序
   public void schoolEnrollRule(Student[] student, ApplicationForm[] appForm) {
-    Iterator<School> iteSchool = schools.iterator();
-    while (iteSchool.hasNext()) {
-      School school = iteSchool.next();
+    for (School school : schools) {
       for (int i = 0; i < student.length; i++) {
         for (int j = 0; j < appForm[i].getNumOfApp(); j++) {
           if (appForm[i].getChoosedSchoolName(j).equals(school.getSchoolName())) {
             school.addStuNum();
-            if (student[i].getStuScore() >= school.getMinEnrollScore()) {
-              school.studentsList.add(student[i]);
-            }
+            school.studentsList.add(student[i]);
           }
         }
       }
+      school.setSchoolStuList();
     }
   }
 
   // 使用String輸出
-  public String schoolEnrollFormOutput2() {
+  public String schoolEnrollFormOutput() {
+    int tempSize;
+    int order;
     StringBuilder finalForm2 = new StringBuilder();
-    Iterator<School> iteSchool = schools.iterator();
-    int trulyEnrollNumber = 0;
-    while (iteSchool.hasNext()) {
-      School school = iteSchool.next();
-      Iterator<Student> iterator = school.studentsList.iterator();
-      finalForm2.append(school.getSchoolName());
-      finalForm2.append(" 錄取名單：\n");
-      int tempSize = 1;
+    for (School school : schools) {
+      Iterator<Student> enrollIter = school.enrollList.iterator();
+      Iterator<Student> standbyIter = school.standbyEnrollList.iterator();
+      Iterator<Student> outIter = school.outEnrollList.iterator();
+      finalForm2.append(school.getSchoolName()).
+              append(" (正取名額:").
+              append(school.getEnrollNum()).
+              append(" 備取名額:").
+              append(school.getStandbyEnrollNum()).
+              append(" 報名人數:").
+              append(school.getTotalStuNum()).
+              append(")").
+              append(" 錄取名單：\n");
 
-      if (school.studentsList.size() >= school.getEnrollNum()) {
-        trulyEnrollNumber = school.getEnrollNum();
-      } else {
-        trulyEnrollNumber = school.studentsList.size();
+      tempSize = 0;
+      while (enrollIter.hasNext()) {
+        Student student = enrollIter.next();
+        order = tempSize + 1;
+        finalForm2.append("正取學生").append(order).append(":").append(student.getStuName()).append("\n");
+        tempSize++;
+      }
+      int trulyEnrollNumber = tempSize;
+
+      tempSize = 0;
+      while (standbyIter.hasNext()) {
+        Student student = standbyIter.next();
+        order = tempSize + 1;
+        finalForm2.append("備取學生").append(order).append(":").append(student.getStuName()).append("\n");
+        tempSize++;
       }
 
-      while (iterator.hasNext()) {
-        Student student = iterator.next();
-        if (tempSize <= school.getEnrollNum()) {
-          finalForm2.append("正取學生" + tempSize + ":" + student.getStuName() + "\n");
-          tempSize++;
-        } else if (tempSize > school.getEnrollNum() && tempSize <= school.getTotalEnrollNumber()) {
-          finalForm2.append("備取學生" + (tempSize - school.getEnrollNum()) + ":" + student.getStuName() + "\n");
-          tempSize++;
-        } else {
-          break;
-        }
+      while (outIter.hasNext()) {
+        Student student = outIter.next();
+        finalForm2.append("未錄取學生").append(":").append(student.getStuName()).append("\n");
       }
 
       String enrollRateFormat = "0.00";
       DecimalFormat df = new DecimalFormat(enrollRateFormat);
-      float enrollRate = (float) (tempSize - 1) * 100 / school.getTotalStuNum();
+      float enrollRate = (float) trulyEnrollNumber * 100 / school.getTotalStuNum();
       float gapRate = (float) (school.getEnrollNum() - trulyEnrollNumber) / (float) school.getEnrollNum() * 100;
-      finalForm2.append("錄取率:" + df.format(enrollRate) + "%" + " 缺額率：" + df.format(gapRate) + "%" + "\n\n");
+      finalForm2.append("錄取率:").append(df.format(enrollRate)).append("%").append(" 缺額率：").append(df.format(gapRate)).append("%").append("\n\n");
     }
 
     return finalForm2.toString();

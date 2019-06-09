@@ -5,6 +5,7 @@ package enrollsystem;
  * */
 public class ApplicationForm {
     private String[] choosedSchoolName = new String[4];// 學生填報的學校列表
+    private String[] schoolState = new String[4];
     private int numOfApp;
 
     public ApplicationForm(String[] choosedSchoolName) {
@@ -22,4 +23,11 @@ public class ApplicationForm {
         return choosedSchoolName[i];
     }
 
+    public void setSchoolState(int i, String schoolState) {
+        this.schoolState[i] = schoolState;
+    }
+
+    public String getSchoolState(int i) {
+        return schoolState[i];
+    }
 }

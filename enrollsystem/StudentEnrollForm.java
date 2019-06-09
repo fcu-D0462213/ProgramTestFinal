@@ -1,57 +1,76 @@
 package enrollsystem;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
  * 學生所得到的表單
  * */
 public class StudentEnrollForm {
-  public String studentEnrollFormRule(Student[] stu, ApplicationForm[] app, SchoolEnrollForm schoolEnrollForm) {
-    StringBuilder stuFinalForm = new StringBuilder();
+  ArrayList<Student> studentList = new ArrayList<>();
+  ArrayList<ApplicationForm> applicationList = new ArrayList<>();
+
+  public void studentEnrollFormRule(Student[] stu, ApplicationForm[] app, SchoolEnrollForm schoolEnrollForm) {
+    //第k個學生
     for (int k = 0; k < stu.length; k++) {
-      Student student = stu[k];
-      ApplicationForm applicationForm = app[k];
-      stuFinalForm.append(student.getStuId() + " " + student.getStuName() + "\n");
-      // 記錄是否正取
+      studentList.add(stu[k]);
+      applicationList.add(app[k]);
       int flag = 0;
-      // 找尋學校名單中的學生姓名
-      for (int i = 0; i < applicationForm.getNumOfApp(); i++) {
-        for (int j = 0; j < schoolEnrollForm.schools.size(); j++) {
-          int tempSize = 1;
-          /* 學校List */
-          if (applicationForm.getChoosedSchoolName(i).equals(schoolEnrollForm.schools.get(j).getSchoolName())) {
-            // 成績小於錄取線：未錄取
-            if (student.getStuScore() < schoolEnrollForm.schools.get(j).getMinEnrollScore()) {
-              stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n");
-            }
-            // 使用iterator遍歷該學校的報名名單
-            Iterator<Student> iterator = schoolEnrollForm.schools.get(j).studentsList.iterator();
-            while (iterator.hasNext()) {
-              Student studentInList = iterator.next();
-              // 判斷學生id
-              if (studentInList.getStuId().equals(student.getStuId())) {
-                if (flag == 0) {
-                  if (tempSize <= schoolEnrollForm.schools.get(j).getEnrollNum()) {
-                    stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 正取" + tempSize + "\n");
-                    flag = 1;
-                  } else if (tempSize > schoolEnrollForm.schools.get(j).getEnrollNum()
-                      && tempSize <= schoolEnrollForm.schools.get(j).getTotalEnrollNumber()) {
-                    stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 備取"
-                        + (tempSize - schoolEnrollForm.schools.get(j).getEnrollNum()) + "\n");
-                  } else {
-                    stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " 未錄取" + "\n");
-                  }
-                } else {
-                  stuFinalForm.append(schoolEnrollForm.schools.get(j).getSchoolName() + " ----" + "\n");
+
+      //历遍第k個學生的志願里的每个学校i
+      for (int i = 0; i < app[k].getNumOfApp(); i++) {
+        for (School school : schoolEnrollForm.schools) {
+          if (school.getSchoolName().equals(app[k].getChoosedSchoolName(i))) {
+            Iterator<Student> enrollIter = school.enrollList.iterator();
+            Iterator<Student> standbyIter = school.standbyEnrollList.iterator();
+            Iterator<Student> outIter = school.outEnrollList.iterator();
+            if (flag == 1) {//已经正取 则之后的学校状态都为----
+              app[k].setSchoolState(i, "----");
+            } else {
+              int tempSize = 1;
+              while (enrollIter.hasNext()) {
+                Student student = enrollIter.next();
+                if (student.getStuId().equals(stu[k].getStuId())) {
+                  app[k].setSchoolState(i, "正取" + tempSize);
+                  flag = 1;
+                  break;
                 }
-              } else if (tempSize <= schoolEnrollForm.schools.get(j).getTotalEnrollNumber()) {
                 tempSize++;
-              } else {
+              }
+              if (flag == 1) {
                 break;
+              } else {
+                tempSize = 1;
+                while (standbyIter.hasNext()) {
+                  Student student = standbyIter.next();
+                  if (student.getStuId().equals(stu[k].getStuId())) {
+                    app[k].setSchoolState(i, "備取" + tempSize);
+                  }
+                }
+                while (outIter.hasNext()) {
+                  Student student = outIter.next();
+                  if (student.getStuId().equals(stu[k].getStuId())) {
+                    app[k].setSchoolState(i, "未錄取");
+                  }
+                }
               }
             }
           }
         }
+      }
+    }
+  }
+
+  public String schoolEnrollFormOutput() {
+
+    StringBuilder stuFinalForm = new StringBuilder();
+    for (int i = 0; i < studentList.size(); i++) {
+      Student student = studentList.get(i);
+      ApplicationForm application = applicationList.get(i);
+      stuFinalForm.append(student.getStuId()).append(" ").append(student.getStuName()).append("\n");
+      for (int j = 0; j < application.getNumOfApp(); j++) {
+        stuFinalForm.append(application.getChoosedSchoolName(j)).append(" ").
+                append(application.getSchoolState(j)).append("\n");
       }
       stuFinalForm.append("\n");
     }

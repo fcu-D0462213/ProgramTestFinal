@@ -83,12 +83,12 @@ public class StudentEnrollFormTest {
         app12, app13, app14, app15, app16, app17, app18 };
 
     schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
-
+    studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm);//學生錄取信息
     Logger log = Logger.getLogger("lavasoft");
     log.setLevel(Level.INFO);
-    log.info(studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm));
 
-    log.info(schoolEnrollForm.schoolEnrollFormOutput2());// 印出學校榜單
+    log.info(studentEnrollForm.schoolEnrollFormOutput());//印出學生的榜單
+    log.info(schoolEnrollForm.schoolEnrollFormOutput());// 印出學校榜單
   }
 
   @Test // 學生錄取測試
