@@ -35,40 +35,41 @@ public class Student implements Comparable {
     Student student = (Student) o;
     if (this.getStuScore() > student.getStuScore()) {
       return -1;
-      //同分按照id排序 小到大
-    } else if (this.getStuScore() == student.getStuScore() && this.getStuId().compareTo(student.getStuId())<0) {
+      // 同分按照id排序 小到大
+    } else if (this.getStuScore() == student.getStuScore() && this.getStuId().compareTo(student.getStuId()) < 0) {
       return -1;
     } else {
       return 1;
     }
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (o == null)
-      return false;
-
-    if (o == this)
-      return true;
-
-    if (this.getClass() != o.getClass())
-      return false;
-
-    if (o instanceof Student) {
-      Student student = (Student) o;
-      return student.stuId == this.stuId
-          && Double.doubleToLongBits(student.stuScore) == Double.doubleToLongBits(this.stuScore)
-          && student.stuName == this.stuName;
-    }
-    return false;
-
-  }
-
-  @Override
-  public int hashCode() {
-    int hash = 17;
-    hash = hash * 31 + stuName.hashCode();
-    return hash;
-  }
+  // @Override
+  // public boolean equals(Object o) {
+  // if (o == null)
+  // return false;
+  //
+  // if (o == this)
+  // return true;
+  //
+  // if (this.getClass() != o.getClass())
+  // return false;
+  //
+  // if (o instanceof Student) {
+  // Student student = (Student) o;
+  // return student.stuId == this.stuId
+  // && Double.doubleToLongBits(student.stuScore) ==
+  // Double.doubleToLongBits(this.stuScore)
+  // && student.stuName == this.stuName;
+  // }
+  // return false;
+  //
+  // }
+  //
+  // @Override
+  // public int hashCode() {
+  // int hash = 17;
+  // hash = hash * 31 + stuName.hashCode();
+  // return hash;
+  // }
 
 }
