@@ -3,7 +3,6 @@ package main.java.example;
  * 學校的錄取規則
  * */
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -60,7 +59,6 @@ public class SchoolEnrollForm {
                 finalForm2.append("正取學生").append(order).append(":").append(student.getStuName()).append("\n");
                 tempSize++;
             }
-            int trulyEnrollNumber = tempSize;
 
             tempSize = 0;
             while (standbyIter.hasNext()) {
@@ -74,14 +72,8 @@ public class SchoolEnrollForm {
                 Student student = outIter.next();
                 finalForm2.append("未錄取學生").append(":").append(student.getStuName()).append("\n");
             }
-
-            String enrollRateFormat = "0.00";
-            DecimalFormat df = new DecimalFormat(enrollRateFormat);
-            float enrollRate = (float) trulyEnrollNumber * 100 / school.getTotalStuNum();
-            float gapRate = (float) (school.getEnrollNum() - trulyEnrollNumber) / (float) school.getEnrollNum() * 100;
-            finalForm2.append("錄取率:").append(df.format(enrollRate)).append("%").append(" 缺額率：").append(df.format(gapRate)).append("%").append("\n");
+            finalForm2.append("錄取率:").append(school.getEnrollRate()).append(" 缺額率：").append(school.getGapRate()).append("\n\n");
         }
-
         return finalForm2.toString();
     }
 

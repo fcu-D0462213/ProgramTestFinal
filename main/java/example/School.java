@@ -1,6 +1,8 @@
 package main.java.example;
 
+import java.text.DecimalFormat;
 import java.util.Iterator;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 /*
@@ -14,12 +16,43 @@ public class School {
     private int standbyEnrollNum;// 備取人數
     private double minEnrollScore;// 最低錄取分數線
     private int totalStuNum = 0;// 报名人数
+    private String enrollRate;
+    private String gapRate;
+
     TreeSet<Student> studentsList = new TreeSet<>();// 每個學校的報考學生列表
     TreeSet<Student> enrollList = new TreeSet<>();// 每個學校的录取學生列表
     TreeSet<Student> standbyEnrollList = new TreeSet<>();// 每個學校的备取學生列表
     TreeSet<Student> outEnrollList = new TreeSet<>();// 每個學校的未录取學生列表
     double enrollMinScore = 0;
     double standbyMinScore = 0;
+
+    public void calRate() {
+        String enrollRateFormat = "0.00%";
+        DecimalFormat df = new DecimalFormat(enrollRateFormat);
+
+        enrollRate = df.format((float) enrollList.size() / totalStuNum);
+        gapRate = df.format((float) (enrollNum - enrollList.size()) / enrollNum);
+    }
+
+    public String getEnrollRate() {
+        return enrollRate;
+    }
+
+    public String getGapRate() {
+        return gapRate;
+    }
+
+    public SortedSet<Student> getEnrollList() {
+        return enrollList;
+    }
+
+    public SortedSet<Student> getStandbyEnrollList() {
+        return standbyEnrollList;
+    }
+
+    public SortedSet<Student> getOutEnrollList() {
+        return outEnrollList;
+    }
 
     public School(String schoolName, int enrollNum, int standbyEnrollNum, double minEnrollScore) {
         this.schoolName = schoolName;
@@ -41,7 +74,12 @@ public class School {
         while (stu.getStuScore() == standbyMinScore) {
             standbyEnrollList.add(stu);
             standbyEnrollNum++;
-            stu = stuIte.next();
+            if (stuIte.hasNext())
+                stu = stuIte.next();
+            else{
+                stu = null;
+                break;
+            }
         }
         return stu;
     }
@@ -51,7 +89,7 @@ public class School {
         Student stu;
         while (stuIte.hasNext()) {
             stu = stuIte.next();
-            if (stu.getStuScore() < this.minEnrollScore){
+            if (stu.getStuScore() < this.minEnrollScore) {
                 outEnrollList.add(stu);
                 stuIte.remove();
             }
@@ -86,9 +124,11 @@ public class School {
                 stu = checkSameEnrollScore(stu, stuIte);
                 // 檢測備取同分
                 stu = checkSameStandbyScore(stu, stuIte);
-                outEnrollList.add(stu);
+                if (stu != null)
+                    outEnrollList.add(stu);
             }
         }
+        calRate();
     }
 
     public String getSchoolName() {

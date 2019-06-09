@@ -30,4 +30,7 @@ public class ApplicationForm {
     public String getSchoolState(int i) {
         return schoolState[i];
     }
+    public String[] getSchoolState() {
+        return schoolState;
+    }
 }
