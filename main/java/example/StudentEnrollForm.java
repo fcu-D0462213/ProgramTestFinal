@@ -2,6 +2,8 @@ package main.java.example;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * 學生所得到的表單
@@ -88,7 +90,7 @@ public class StudentEnrollForm {
         }
         return stuFinalForm.toString();
     }
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         Student student1 = new Student("160001", "張三", 100);
         Student student2 = new Student("160002", "赖恬甜", 100);
         Student student3 = new Student("160003", "王喆", 99);
@@ -169,5 +171,5 @@ public class StudentEnrollForm {
 
         log.info(studentEnrollForm.studentEnrollFormOutput());//印出學生的榜單
         log.info(schoolEnrollForm.schoolEnrollFormOutput());// 印出學校榜單
-    }*/
+    }
 }

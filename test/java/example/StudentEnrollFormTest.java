@@ -38,7 +38,7 @@ public class StudentEnrollFormTest {
     }
 
     // 學生錄取測試
-    @Test
+    @Test//正取，-，-，-
     public void studentFinalEnrollFormTest1() {
         ApplicationForm app1 = new ApplicationForm(new String[]{"台灣大學", "逢甲大學", "政治大學", "中央大學"});
         ApplicationForm app2 = new ApplicationForm(new String[]{"中央大學", "台灣大學", "逢甲大學", "政治大學"});
@@ -53,7 +53,7 @@ public class StudentEnrollFormTest {
         assertEquals("[正取1, ----, ----, ----]", Arrays.toString(apps[2].getSchoolState()));
     }
 
-    @Test // 學生錄取測試
+    @Test // 備取，正取，-，-
     public void studentFinalEnrollFormTest2() {
         ApplicationForm app1 = new ApplicationForm(new String[]{"中央大學", "", "政治大學", "台灣大學"});
         ApplicationForm app2 = new ApplicationForm(new String[]{"交通大學", "中央大學", "政治大學", "台灣大學"});
@@ -68,7 +68,7 @@ public class StudentEnrollFormTest {
         assertEquals("[備取1, 正取1, ----, ----]", Arrays.toString(apps[2].getSchoolState()));
     }
 
-    @Test // 學生錄取測試
+    @Test // 未錄取，備取，正取，-
     public void studentFinalEnrollFormTest3() {
         ApplicationForm app1 = new ApplicationForm(new String[]{"中央大學", "逢甲大學", "台灣大學", "政治大學"});
         ApplicationForm app2 = new ApplicationForm(new String[]{"交通大學", "中央大學", "政治大學", "逢甲大學"});
@@ -83,7 +83,7 @@ public class StudentEnrollFormTest {
         assertEquals("[未錄取, 備取1, 正取3, ----]", Arrays.toString(apps[2].getSchoolState()));
     }
 
-    @Test // 學生錄取測試 3 3 2 1
+    @Test // 未錄取，未錄取，備取，正取
     public void studentFinalEnrollFormTest4() {
         ApplicationForm app1 = new ApplicationForm(new String[]{"交通大學", "政治大學", "中央大學", "台灣大學"});
         ApplicationForm app2 = new ApplicationForm(new String[]{"中央大學", "交通大學", "政治大學", "台灣大學"});
@@ -98,7 +98,7 @@ public class StudentEnrollFormTest {
         assertEquals("[未錄取, 未錄取, 備取3, 正取2]", Arrays.toString(apps[4].getSchoolState()));
     }
 
-    @Test // 學生錄取測試 2 3 2 2
+    @Test // 備取，未錄取，備取，備取
     public void studentFinalEnrollFormTest5() {
         ApplicationForm app1 = new ApplicationForm(new String[]{"中央大學", "交通大學", "逢甲大學", "中央大學"});
         ApplicationForm app2 = new ApplicationForm(new String[]{"中央大學", "逢甲大學", "中央大學", "政治大學"});
@@ -111,6 +111,24 @@ public class StudentEnrollFormTest {
         studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm);//學生錄取信息
 
         assertEquals("[備取1, 未錄取, 備取1, 備取3]", Arrays.toString(apps[2].getSchoolState()));
+        Logger log = Logger.getLogger("lavasoft");
+        log.setLevel(Level.INFO);
+
+    }
+
+    @Test // 未錄取，備取，未錄取，未錄取
+    public void studentFinalEnrollFormTest6() {
+        ApplicationForm app1 = new ApplicationForm(new String[]{"中央大學", "台灣大學", "逢甲大學", "政治大學"});
+        ApplicationForm app2 = new ApplicationForm(new String[]{"中央大學", "台灣大學", "逢甲大學", "政治大學"});
+        ApplicationForm app3 = new ApplicationForm(new String[]{"台灣大學", "逢甲大學", "交通大學", "政治大學"});
+        ApplicationForm app4 = new ApplicationForm(new String[]{"政治大學", "中央大學", "交通大學", "逢甲大學"});
+        ApplicationForm app5 = new ApplicationForm(new String[]{"台灣大學", "中央大學", "逢甲大學", "交通大學"});
+        ApplicationForm[] apps = new ApplicationForm[]{app1, app2, app3, app4, app5};
+
+        schoolEnrollForm.schoolEnrollRule(students, apps);// 學校的錄取名單
+        studentEnrollForm.studentEnrollFormRule(students, apps, schoolEnrollForm);//學生錄取信息
+
+        assertEquals("[未錄取, 備取2, 未錄取, 未錄取]", Arrays.toString(apps[4].getSchoolState()));
         Logger log = Logger.getLogger("lavasoft");
         log.setLevel(Level.INFO);
 
